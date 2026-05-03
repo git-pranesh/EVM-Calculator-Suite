@@ -22,12 +22,12 @@ type EVMInputs = {
 
 // Formatter utilities
 const formatMoney = (val: number | undefined | null) => {
-  if (val === undefined || val === null || isNaN(val) || !isFinite(val)) return "—";
+  if (val === undefined || val === null || isNaN(val) || !isFinite(val)) return "N/A";
   return new Intl.NumberFormat("en-US", { style: "currency", currency: "USD" }).format(val);
 };
 
 const formatIndex = (val: number | undefined | null) => {
-  if (val === undefined || val === null || isNaN(val) || !isFinite(val)) return "—";
+  if (val === undefined || val === null || isNaN(val) || !isFinite(val)) return "N/A";
   return val.toFixed(3);
 };
 

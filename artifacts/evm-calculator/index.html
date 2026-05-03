@@ -2,16 +2,119 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
-    <title>Budget at Completion Calculator — EVM Calculator</title>
-    <meta name="description" content="A precise, professional tool for project managers and cost engineers to compute standard Earned Value Management metrics including CPI, SPI, EAC, and more." />
-    <meta property="og:title" content="Budget at Completion Calculator — EVM Calculator" />
-    <meta property="og:description" content="A precise, professional tool for project managers and cost engineers to compute standard Earned Value Management metrics including CPI, SPI, EAC, and more." />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="index, follow" />
+    <title>EVM Calculator — Budget at Completion, CPI, SPI, EAC</title>
+    <meta name="description" content="Free Earned Value Management calculator. Enter BAC, PV, EV, AC and instantly compute CPI, SPI, CV, SV, EAC, ETC, VAC, and TCPI with formulas and explanations." />
+    <link rel="canonical" href="https://evm-calculator.replit.app/" />
+
+    <meta property="og:title" content="EVM Calculator — Budget at Completion, CPI, SPI, EAC" />
+    <meta property="og:description" content="Free Earned Value Management calculator. Enter BAC, PV, EV, AC and instantly compute CPI, SPI, CV, SV, EAC, ETC, VAC, and TCPI with formulas and explanations." />
+    <meta property="og:url" content="https://evm-calculator.replit.app/" />
     <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="EVM Calculator" />
+    <meta property="og:image" content="https://evm-calculator.replit.app/opengraph.jpg" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="EVM Calculator — Budget at Completion, CPI, SPI, EAC" />
+    <meta name="twitter:description" content="Free Earned Value Management calculator. Enter BAC, PV, EV, AC and instantly compute CPI, SPI, CV, SV, EAC, ETC, VAC, and TCPI with formulas and explanations." />
+    <meta name="twitter:image" content="https://evm-calculator.replit.app/opengraph.jpg" />
+
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "EVM Calculator",
+      "url": "https://evm-calculator.replit.app/",
+      "description": "Free online Earned Value Management calculator for project managers and cost engineers.",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://evm-calculator.replit.app/?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "EVM Calculator",
+      "url": "https://evm-calculator.replit.app/",
+      "description": "Earned Value Management calculator that computes CPI, SPI, CV, SV, EAC, ETC, VAC, and TCPI from BAC, PV, EV, and AC.",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "Any",
+      "browserRequirements": "Requires JavaScript",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      }
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is Earned Value Management (EVM)?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Earned Value Management is a project management technique that integrates scope, schedule, and cost data to objectively measure project performance and forecast future outcomes. It compares planned work, completed work, and actual cost to produce variances and indices that reveal whether a project is on track."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What do BAC, PV, EV, and AC mean?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "BAC is Budget at Completion, the total approved budget for the project. PV is Planned Value, the budgeted cost of work scheduled to be completed by now. EV is Earned Value, the budgeted cost of work actually performed. AC is Actual Cost, the real money spent on the work performed to date."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I calculate the Cost Performance Index (CPI)?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Cost Performance Index is calculated by dividing Earned Value by Actual Cost: CPI = EV / AC. A CPI greater than or equal to 1.0 indicates the project is on or under budget, while a CPI less than 1.0 indicates the project is over budget."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I calculate the Schedule Performance Index (SPI)?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Schedule Performance Index is calculated by dividing Earned Value by Planned Value: SPI = EV / PV. A SPI greater than or equal to 1.0 means the project is on or ahead of schedule, while a SPI less than 1.0 means the project is behind schedule."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is Estimate at Completion (EAC) and how is it calculated?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Estimate at Completion is the forecasted total cost of the project given current performance. The most common formula is EAC = BAC / CPI, which assumes the current cost performance will continue to the end of the project."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is this EVM Calculator free to use?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, this EVM Calculator is completely free to use. There is no signup, no paywall, and no data is collected from users. All calculations happen locally in your browser."
+          }
+        }
+      ]
+    }
+    </script>
   </head>
   <body>
     <div id="root"></div>

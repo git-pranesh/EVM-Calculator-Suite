@@ -1,0 +1,28 @@
+# EVM Calculator
+
+> EVM Calculator is a free, single-page web tool that computes all standard Earned Value Management metrics from four inputs (BAC, PV, EV, AC). It is designed for project managers, cost engineers, and PMP candidates who need fast, accurate calculations of cost and schedule performance with formulas and plain-English explanations.
+
+The tool calculates eight metrics in real time: Cost Performance Index (CPI), Schedule Performance Index (SPI), Cost Variance (CV), Schedule Variance (SV), Estimate at Completion (EAC), Estimate to Complete (ETC), Variance at Completion (VAC), and To-Complete Performance Index (TCPI). All calculations happen locally in the browser; no data is sent to any server.
+
+## Pages
+
+- [Home — EVM Calculator](https://evm-calculator.replit.app/): The main calculator. Enter BAC, PV, EV, and AC and instantly see all eight EVM metrics with formulas, color-coded status indicators, and a glossary.
+- [About](https://evm-calculator.replit.app/about/): Background on the calculator, who built it, and why it exists.
+- [Privacy Policy](https://evm-calculator.replit.app/privacy-policy/): Privacy practices. The calculator does not collect personal data; all calculations are client-side.
+
+## Key formulas
+
+- CPI = EV / AC
+- SPI = EV / PV
+- CV  = EV - AC
+- SV  = EV - PV
+- EAC = BAC / CPI
+- ETC = EAC - AC
+- VAC = BAC - EAC
+- TCPI = (BAC - EV) / (BAC - AC)
+
+## Interpretation
+
+- Indices (CPI, SPI, TCPI) >= 1.0 indicate on-track or favorable performance; < 1.0 indicates unfavorable.
+- Variances (CV, SV, VAC) >= 0 indicate favorable; < 0 indicates unfavorable.
+- When a denominator is zero or an input is missing, the calculator displays "N/A" instead of an invalid number.

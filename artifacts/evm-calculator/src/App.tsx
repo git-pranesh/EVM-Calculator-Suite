@@ -157,22 +157,23 @@ function Home() {
     <div className="min-h-[100dvh] w-full bg-background pb-20 selection:bg-primary/20">
       <header className="border-b bg-card shadow-sm sticky top-0 z-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <Calculator className="h-5 w-5 text-primary" />
-            <h1 className="font-bold text-lg tracking-tight">EVM Calculator</h1>
-          </div>
-          <div className="text-sm font-medium text-muted-foreground hidden sm:block">
-            Budget at Completion Calculator
-          </div>
+          <a href="/" className="flex items-center gap-2 hover-elevate active-elevate-2 rounded-md px-2 py-1 -mx-2" aria-label="EVM Calculator home">
+            <Calculator className="h-5 w-5 text-primary" aria-hidden="true" />
+            <span className="font-bold text-lg tracking-tight">EVM Calculator</span>
+          </a>
+          <nav aria-label="Primary" className="text-sm font-medium text-muted-foreground flex items-center gap-4">
+            <a href="/about/" className="hover:text-foreground">About</a>
+            <a href="/privacy-policy/" className="hover:text-foreground hidden sm:inline">Privacy</a>
+          </nav>
         </div>
       </header>
 
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-10">
         <div className="max-w-3xl mb-12">
-          <h2 className="text-3xl font-bold tracking-tight mb-3">Earned Value Management</h2>
+          <h1 className="text-3xl sm:text-4xl font-bold tracking-tight mb-3">Earned Value Management Calculator</h1>
           <p className="text-lg text-muted-foreground leading-relaxed">
-            A precise tool for project managers to compute standard EVM metrics. 
-            Enter your project's basic values below to instantly calculate variances, indices, and forecasts.
+            A precise, free tool for project managers and cost engineers to compute standard EVM metrics.
+            Enter your project's BAC, PV, EV, and AC below to instantly calculate variances, indices, and forecasts including CPI, SPI, EAC, and TCPI.
           </p>
         </div>
 
@@ -192,7 +193,7 @@ function Home() {
                     <Label htmlFor="bac" className="font-semibold text-foreground">BAC <span className="font-normal text-muted-foreground ml-1">Budget at Completion</span></Label>
                     <Tooltip>
                       <TooltipTrigger asChild>
-                        <InfoIcon className="h-4 w-4 text-muted-foreground cursor-help" />
+                        <InfoIcon className="h-4 w-4 text-muted-foreground cursor-help" aria-hidden="true" focusable="false" />
                       </TooltipTrigger>
                       <TooltipContent><p className="w-[200px] text-sm">Total budget allocated to the project.</p></TooltipContent>
                     </Tooltip>
@@ -212,7 +213,7 @@ function Home() {
                     <Label htmlFor="pv" className="font-semibold text-foreground">PV <span className="font-normal text-muted-foreground ml-1">Planned Value</span></Label>
                     <Tooltip>
                       <TooltipTrigger asChild>
-                        <InfoIcon className="h-4 w-4 text-muted-foreground cursor-help" />
+                        <InfoIcon className="h-4 w-4 text-muted-foreground cursor-help" aria-hidden="true" focusable="false" />
                       </TooltipTrigger>
                       <TooltipContent><p className="w-[200px] text-sm">Budgeted cost of work scheduled to be completed by now.</p></TooltipContent>
                     </Tooltip>
@@ -232,7 +233,7 @@ function Home() {
                     <Label htmlFor="ev" className="font-semibold text-foreground">EV <span className="font-normal text-muted-foreground ml-1">Earned Value</span></Label>
                     <Tooltip>
                       <TooltipTrigger asChild>
-                        <InfoIcon className="h-4 w-4 text-muted-foreground cursor-help" />
+                        <InfoIcon className="h-4 w-4 text-muted-foreground cursor-help" aria-hidden="true" focusable="false" />
                       </TooltipTrigger>
                       <TooltipContent><p className="w-[200px] text-sm">Budgeted cost of work actually performed so far.</p></TooltipContent>
                     </Tooltip>
@@ -252,7 +253,7 @@ function Home() {
                     <Label htmlFor="ac" className="font-semibold text-foreground">AC <span className="font-normal text-muted-foreground ml-1">Actual Cost</span></Label>
                     <Tooltip>
                       <TooltipTrigger asChild>
-                        <InfoIcon className="h-4 w-4 text-muted-foreground cursor-help" />
+                        <InfoIcon className="h-4 w-4 text-muted-foreground cursor-help" aria-hidden="true" focusable="false" />
                       </TooltipTrigger>
                       <TooltipContent><p className="w-[200px] text-sm">Actual cost incurred for the work performed so far.</p></TooltipContent>
                     </Tooltip>
@@ -400,7 +401,50 @@ function Home() {
             </div>
           </div>
         </div>
+
+        {/* FAQ */}
+        <section className="mt-20 border-t pt-10" aria-labelledby="faq-heading">
+          <h2 id="faq-heading" className="text-2xl font-bold tracking-tight mb-6">Frequently Asked Questions</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-6 max-w-5xl">
+            <div>
+              <h3 className="font-semibold text-foreground">What is Earned Value Management (EVM)?</h3>
+              <p className="text-sm text-muted-foreground mt-1 leading-relaxed">EVM is a project management technique that integrates scope, schedule, and cost data to objectively measure project performance and forecast future outcomes by comparing planned, completed, and actual work.</p>
+            </div>
+            <div>
+              <h3 className="font-semibold text-foreground">What do BAC, PV, EV, and AC mean?</h3>
+              <p className="text-sm text-muted-foreground mt-1 leading-relaxed">BAC is the total approved budget. PV is the budgeted cost of work scheduled. EV is the budgeted cost of work performed. AC is the actual cost of the work performed to date.</p>
+            </div>
+            <div>
+              <h3 className="font-semibold text-foreground">How is the Cost Performance Index (CPI) calculated?</h3>
+              <p className="text-sm text-muted-foreground mt-1 leading-relaxed">CPI = EV / AC. A CPI of 1.0 or higher indicates the project is on or under budget; a CPI below 1.0 indicates it is over budget.</p>
+            </div>
+            <div>
+              <h3 className="font-semibold text-foreground">How is the Schedule Performance Index (SPI) calculated?</h3>
+              <p className="text-sm text-muted-foreground mt-1 leading-relaxed">SPI = EV / PV. A value of 1.0 or higher means the project is on or ahead of schedule; below 1.0 means it is behind.</p>
+            </div>
+            <div>
+              <h3 className="font-semibold text-foreground">What is Estimate at Completion (EAC)?</h3>
+              <p className="text-sm text-muted-foreground mt-1 leading-relaxed">EAC = BAC / CPI is the most common forecast: the projected total cost assuming current cost performance continues to the end of the project.</p>
+            </div>
+            <div>
+              <h3 className="font-semibold text-foreground">Is this EVM Calculator free to use?</h3>
+              <p className="text-sm text-muted-foreground mt-1 leading-relaxed">Yes. The calculator is completely free, requires no signup, and runs entirely in your browser. No data is collected or transmitted.</p>
+            </div>
+          </div>
+        </section>
       </main>
+
+      <footer className="mt-20 border-t bg-card">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-muted-foreground">
+          <p>&copy; {new Date().getFullYear()} EVM Calculator. All calculations run in your browser.</p>
+          <nav aria-label="Footer" className="flex items-center gap-5">
+            <a href="/" className="hover:text-foreground">Home</a>
+            <a href="/about/" className="hover:text-foreground">About</a>
+            <a href="/privacy-policy/" className="hover:text-foreground">Privacy</a>
+            <a href="/sitemap.xml" className="hover:text-foreground">Sitemap</a>
+          </nav>
+        </div>
+      </footer>
     </div>
   );
 }

@@ -1,0 +1,85 @@
+You have just built this website. Before this is considered done, run a complete audit and stress test across ALL of the following categories. For each check, tell me: PASS ✅ or FAIL ❌, and if FAIL, fix it immediately without asking.
+
+=== AUDIT CATEGORY 1: SEO FUNDAMENTALS ===
+
+Check every single page (including all programmatic pages):
+
+1. Does every page have a unique <title> tag? Check for duplicates across all pages. Max 60 characters.
+2. Does every page have a unique meta description? Max 155 characters. No duplicates.
+3. Does every page have exactly ONE <h1> tag? Zero pages should have 0 h1s or 2+ h1s.
+4. Does every page have a canonical > tag pointing to its own absolute URL?
+5. Is <html lang="en"> present on every page?
+6. Are all H2/H3/H4 tags in correct hierarchy? No H3 without a parent H2. No skipped levels.
+7. Are ALL internal links using absolute or root-relative paths? No broken hrefs, no empty href="".
+8. Does every image and icon have a non-empty alt attribute? Alt="" is only acceptable for purely decorative icons.
+9. Is there a /robots.txt file? Does it explicitly ALLOW GPTBot, ClaudeBot, anthropic-ai, PerplexityBot, Bingbot, Googlebot? Does it have NO Disallow rules that would block any of these?
+10. Is there a /sitemap.xml? Does it list EVERY page including all programmatic pages? Do all URLs use the correct domain (not localhost)?
+11. Are there no orphaned pages — every page reachable via internal links from at least one other page?
+12. Are all Open Graph tags present on every page? Required: og:title, og:description, og:url, og:type, og:site_name, og:image.
+13. Are Twitter Card meta tags present on every page? Required: twitter:card, twitter:title, twitter:description.
+14. Does the homepage have the WebSite JSON-LD schema with SearchAction?
+15. Does every tool page have a WebApplication JSON-LD schema?
+16. Does every page have a FAQPage JSON-LD schema with at least 5 Q&A pairs?
+17. Does every sub-page (not homepage) have a BreadcrumbList JSON-LD schema?
+18. Are all JSON-LD schemas valid — no syntax errors, no undefined fields, no empty strings?
+19. Is there a /llms.txt file in the public folder? Does it describe all pages with full URLs?
+20. Is robots meta tag set to "index, follow" on all pages (not noindex)?
+
+=== AUDIT CATEGORY 2: TECHNICAL SEO ===
+
+21. Run the build with `next build`. Does it complete with 0 errors and 0 warnings?
+22. Does `next export` (or static build) produce HTML files for EVERY programmatic page? Count the output files and verify it matches the expected number of pages.
+23. Open the built HTML of 5 random programmatic pages. Is the full content (H1, body text, FAQs, JSON-LD) present in the raw HTML — not injected by JavaScript after load? This is critical for static export crawlability.
+24. Do all JSON-LD scripts appear in the <head> of the raw HTML? Not in <body>.
+25. Is there a > in the <head> of the raw HTML of every page?
+26. Check the sitemap.xml — do all URLs match actual built pages? No 404 URLs.
+27. Is the sitemap.xml valid XML? Parse it and check for syntax errors.
+28. Are there any console errors when loading any page? Run with browser dev tools simulation.
+29. Is there a /404.html or custom 404 page?
+30. Do all internal links resolve to actual pages that exist in the build?
+
+=== AUDIT CATEGORY 3: AEO — AI ENGINE OPTIMIZATION ===
+
+31. Is /llms.txt present and readable? Open it — is it in clean plain text or markdown? Does it have zero HTML tags?
+32. Does llms.txt list EVERY page URL on the site with a brief description?
+33. Does llms.txt explain exactly what the tool does in 2-3 sentences that an AI could use verbatim to describe the site to a user?
+34. Are FAQ answers written as complete, direct sentences (not just "Yes" or "No")? AI engines extract these as answers.
+35. Do FAQ questions match actual user search queries (conversational, natural language)?
+36. Is there enough plain-text content on every page for an AI to extract a useful summary? Minimum 300 words of visible text per page.
+37. Do page titles and H1s match the natural language queries users type? No SEO-stuffed titles like "Best Free Online Timer Tool for Countdown | Timer Website".
+38. Are structured data descriptions (in JSON-LD) written in plain English, full sentences, no keyword stuffing?
+39. Is there a /about page that explains who made this, what it is, and why it exists?
+40. Is there a /privacy-policy page?
+
+=== AUDIT CATEGORY 4: PERFORMANCE ===
+
+41. Measure the main page Largest Contentful Paint (LCP). Simulate with Lighthouse. Should be under 2.5 seconds.
+42. Is Cumulative Layout Shift (CLS) = 0? No elements should shift after page load. Check by disabling CSS and re-enabling.
+43. Is the total JavaScript bundle size under 200KB for the initial page load?
+44. Are there any render-blocking scripts? All <script> tags should be async or deferred or placed before </body>.
+45. If Google Fonts or any external font is used, is it preloaded with >?
+46. Is there a loading spinner or skeleton that prevents CLS while the tool loads?
+
+=== AUDIT CATEGORY 5: ACCESSIBILITY ===
+
+47. Do all interactive elements (buttons, inputs, selects) have ARIA labels or visible labels?
+48. Is the site navigable by keyboard alone? Tab through the page — can you reach and use all controls?
+49. Is color contrast ratio at least 4.5:1 for all text? (WCAG AA minimum)
+50. Do form inputs have associated abel> elements?
+
+=== AUDIT CATEGORY 6: MOBILE ===
+
+51. Does the site render correctly at 375px width (iPhone SE)?
+52. Are touch targets (buttons) at least 44x44px?
+53. Is there a <meta name="viewport" content="width=device-width, initial-scale=1"> tag?
+54. Does the tool work fully on mobile — can a user complete the core action (use the tool) without any horizontal scrolling?
+
+=== FINAL INSTRUCTION ===
+After running all 54 checks, give me a report in this format:
+
+PASSED: [number]
+FAILED: [number]
+
+Then list only the failures with what you fixed. If anything could not be auto-fixed, tell me exactly what I need to do manually. Re-run the build after fixes and confirm final status.
+
+Do NOT mark anything as a pass unless you have actually verified it in the code. Do not assume.

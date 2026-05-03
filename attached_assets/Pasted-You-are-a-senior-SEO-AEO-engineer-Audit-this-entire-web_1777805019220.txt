@@ -1,0 +1,120 @@
+You are a senior SEO/AEO engineer. Audit this entire website for programmatic SEO completeness, uniqueness, and EEAT compliance. Follow these exact steps:
+
+---
+
+## STEP 1 — COUNT ALL PAGES
+
+1. Crawl the entire sitemap (check /sitemap.xml).
+2. Count and list every page by type:
+   - Static pages (Home, About, FAQ, Contact, Privacy, Terms)
+   - Tool/Calculator pages
+   - Programmatic SEO pages (e.g., /calculate/[city], /convert/[unit-to-unit], /[keyword]-calculator, etc.)
+3. Print a breakdown table:
+   | Page Type | Count | Example URL |
+4. Print TOTAL page count.
+
+---
+
+## STEP 2 — UNIQUENESS CHECK
+
+For every pSEO page template, verify:
+- [ ] H1 is dynamically unique per page (not identical across all pages)
+- [ ] Meta title is unique per page (includes the dynamic variable)
+- [ ] Meta description is unique per page
+- [ ] Page intro paragraph changes meaningfully per variant (not 95%+ identical copy)
+- [ ] At least one data point, fact, or contextual sentence is unique to that page variant
+- [ ] No two pages are 100% duplicate content
+- [ ] Canonical tags are present and point to the correct URL (self-referencing)
+
+If any issues found → list them with the affected URL pattern.
+
+---
+
+## STEP 3 — EEAT COMPLIANCE CHECK
+
+Check every page type for:
+- [ ] Author byline or "About this tool" section present
+- [ ] Last updated / reviewed date visible
+- [ ] Sources cited where applicable (e.g., formula source, data source)
+- [ ] Trust signals: Privacy Policy, Terms of Service linked in footer
+- [ ] About Us page exists explaining who built the tool and why
+- [ ] Contact page or email present
+- [ ] No medical/legal/financial claims without disclaimers
+
+---
+
+## STEP 4 — ON-PAGE SEO CHECK (Every Page)
+
+For each page template verify:
+- [ ] <title> tag: unique, contains primary keyword, under 60 chars
+- [ ] <meta description>: unique, 120-155 chars, contains CTA
+- [ ] <meta name="robots" content="index, follow"> present
+- [ ] Open Graph tags: og:title, og:description, og:url, og:image all set
+- [ ] Twitter Card tags set
+- [ ] H1 present and unique (exactly one per page)
+- [ ] H2/H3 hierarchy logical and contains secondary keywords
+- [ ] Internal links: each page links to at least 2-3 related pages
+- [ ] Breadcrumb navigation present on all pSEO pages
+- [ ] Structured Data (JSON-LD): appropriate schema added
+     → Tool pages: SoftwareApplication or WebApplication schema
+     → Calculator pages: FAQPage schema + HowTo schema
+     → pSEO pages: relevant schema based on content type
+- [ ] Image alt tags filled for all images/icons
+
+---
+
+## STEP 5 — CRAWLABILITY CHECK
+
+- [ ] /sitemap.xml exists and lists ALL pages including pSEO pages
+- [ ] /robots.txt exists, does NOT block crawlers
+- [ ] robots.txt includes: Sitemap: https://[yourdomain].com/sitemap.xml
+- [ ] No noindex tags on pSEO pages accidentally
+- [ ] Page load speed under 2s (check with Lighthouse score)
+- [ ] Mobile responsive (check viewport meta tag)
+- [ ] No broken internal links (404s)
+- [ ] HTTPS enabled
+
+---
+
+## STEP 6 — AEO (Answer Engine Optimization) CHECK
+
+For AI crawlers (ChatGPT, Perplexity, Gemini):
+- [ ] <meta name="robots" content="index, follow"> (no GPTBot block in robots.txt)
+- [ ] FAQ section on every major page with Question/Answer format
+- [ ] FAQPage JSON-LD schema matches the FAQ content on page
+- [ ] Clear, direct answers in first 100 words of each page
+- [ ] Tool description answers "what does this tool do" in plain English
+- [ ] HowTo schema on calculator/tool pages
+- [ ] No JavaScript-only rendering of main content (must be in HTML)
+
+---
+
+## STEP 7 — FINAL REPORT
+
+Print this summary:
+
+### pSEO AUDIT REPORT — [Website Name]
+| Check | Status | Issues Found |
+|-------|--------|--------------|
+| Total Pages | ✅/❌ | [count] |
+| Unique Titles | ✅/❌ | [list issues] |
+| Unique Meta Desc | ✅/❌ | [list issues] |
+| Unique Content | ✅/❌ | [list issues] |
+| EEAT Signals | ✅/❌ | [list issues] |
+| Structured Data | ✅/❌ | [list issues] |
+| Sitemap Complete | ✅/❌ | [list issues] |
+| AEO Ready | ✅/❌ | [list issues] |
+| Crawlable | ✅/❌ | [list issues] |
+
+### Pages Summary:
+- Static Pages: [count]
+- Tool Pages: [count]
+- pSEO Pages: [count]
+- **TOTAL: [count]**
+
+### Action Items (Priority Order):
+1. [Critical fixes]
+2. [Important fixes]
+3. [Nice to have]
+
+Fix ALL critical issues before going live.

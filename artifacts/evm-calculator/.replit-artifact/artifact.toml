@@ -1,0 +1,31 @@
+kind = "web"
+previewPath = "/"
+title = "EVM Calculator"
+version = "1.0.0"
+id = "artifacts/evm-calculator"
+router = "path"
+
+[[integratedSkills]]
+name = "react-vite"
+version = "1.0.0"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 21097
+
+[services.development]
+run = "pnpm --filter @workspace/evm-calculator run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/evm-calculator", "run", "build" ]
+publicDir = "artifacts/evm-calculator/dist/public"
+serve = "static"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "21097"
+BASE_PATH = "/"

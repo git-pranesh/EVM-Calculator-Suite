@@ -44,6 +44,14 @@ const getIndexStatus = (val: number | undefined | null): MetricStatus => {
   return val >= 1 ? "good" : "bad";
 };
 
+// TCPI is interpreted in the opposite direction from CPI/SPI:
+// TCPI <= 1.0 means the remaining work can be done at or below the planned rate (favorable).
+// TCPI > 1.0 means the team must outperform the planned rate to finish on budget (warning).
+const getTcpiStatus = (val: number | undefined | null): MetricStatus => {
+  if (val === undefined || val === null || isNaN(val) || !isFinite(val)) return "neutral";
+  return val <= 1 ? "good" : "bad";
+};
+
 function Home() {
   const [bac, setBac] = useState<number | undefined>(undefined);
   const [pv, setPv] = useState<number | undefined>(undefined);
@@ -348,10 +356,10 @@ function Home() {
                 title="To-Complete Performance Index"
                 formula="TCPI = (BAC - EV) / (BAC - AC)"
                 value={metrics.tcpi}
-                explanation="The cost performance required to complete the remaining work within the original budget."
-                status={getIndexStatus(metrics.tcpi)}
-                goodLabel="On Track"
-                badLabel="Off Track"
+                explanation="The cost efficiency required on remaining work to finish within the original BAC. Values above 1.0 mean the team must outperform the planned rate."
+                status={getTcpiStatus(metrics.tcpi)}
+                goodLabel="Achievable"
+                badLabel="Stretch Required"
                 isMoney={false}
               />
             </div>
@@ -394,8 +402,12 @@ function Home() {
                   <span className="text-muted-foreground mt-1">Positive is good. Negative is bad. A positive CV means you are under budget. A positive SV means you are ahead of schedule.</span>
                 </li>
                 <li className="flex flex-col">
-                  <span className="font-semibold text-foreground">Indices (CPI, SPI, TCPI)</span>
+                  <span className="font-semibold text-foreground">Indices (CPI, SPI)</span>
                   <span className="text-muted-foreground mt-1">Greater than or equal to 1.0 is on track. Less than 1.0 is off track. A CPI of 1.2 means you are getting $1.20 of work for every $1 spent.</span>
+                </li>
+                <li className="flex flex-col">
+                  <span className="font-semibold text-foreground">TCPI (inverted)</span>
+                  <span className="text-muted-foreground mt-1">Less than or equal to 1.0 is achievable. Greater than 1.0 is a warning: the team must outperform the originally planned cost rate on remaining work to finish within the BAC.</span>
                 </li>
               </ul>
             </div>

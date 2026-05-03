@@ -3,6 +3,30 @@ import react from "@vitejs/plugin-react";
 import tailwindcss from "@tailwindcss/vite";
 import path from "path";
 import runtimeErrorOverlay from "@replit/vite-plugin-runtime-error-modal";
+import fs from "fs";
+
+// Dev-only: serve public/foo/index.html when the URL is /foo/ (mirrors prod static hosts).
+const publicDirectoryIndex = () => ({
+  name: "public-directory-index",
+  configureServer(server: import("vite").ViteDevServer) {
+    server.middlewares.use((req, _res, next) => {
+      if (!req.url) return next();
+      const [pathname] = req.url.split("?");
+      if (pathname.endsWith("/") && pathname !== "/") {
+        const candidate = path.resolve(
+          import.meta.dirname,
+          "public",
+          "." + pathname,
+          "index.html",
+        );
+        if (fs.existsSync(candidate)) {
+          req.url = pathname + "index.html" + (req.url.includes("?") ? "?" + req.url.split("?")[1] : "");
+        }
+      }
+      next();
+    });
+  },
+});
 
 const rawPort = process.env.PORT;
 
@@ -32,6 +56,7 @@ export default defineConfig({
     react(),
     tailwindcss(),
     runtimeErrorOverlay(),
+    publicDirectoryIndex(),
     ...(process.env.NODE_ENV !== "production" &&
     process.env.REPL_ID !== undefined
       ? [

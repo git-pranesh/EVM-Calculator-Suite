@@ -243,3 +243,14 @@
     -moz-appearance: textfield;
   }
 }
+@media print {
+  .no-print { display: none !important; }
+  .lg\:sticky, .sticky { position: static !important; top: auto !important; }
+  body, html { background: white !important; }
+  .shadow-md, .shadow-sm, .hover\:shadow-md { box-shadow: none !important; }
+  main { padding-top: 0 !important; }
+  a { color: inherit !important; text-decoration: none !important; }
+  .border { border-color: #cbd5e1 !important; }
+  .bg-card, .bg-muted\/50 { background: white !important; }
+  @page { margin: 0.6in; }
+}

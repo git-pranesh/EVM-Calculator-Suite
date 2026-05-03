@@ -7,6 +7,10 @@ The tool calculates eight metrics in real time: Cost Performance Index (CPI), Sc
 ## Pages
 
 - [Home — EVM Calculator](https://evm-calculator.replit.app/): The main calculator. Enter BAC, PV, EV, and AC and instantly see all eight EVM metrics with formulas, color-coded status indicators, and a glossary.
+- [CPI Calculator](https://evm-calculator.replit.app/cpi-calculator): Focused single-metric calculator for Cost Performance Index from EV and AC.
+- [EAC Calculator](https://evm-calculator.replit.app/eac-calculator): Focused calculator for Estimate at Completion using BAC, EV, and AC.
+- [PMP Formulas Cheat Sheet](https://evm-calculator.replit.app/pmp-formulas/): Printable reference of all standard EVM formulas for the PMP exam.
+- [What is Budget at Completion?](https://evm-calculator.replit.app/what-is-budget-at-completion/): Long-form guide to BAC, including how it is set, how it differs from EAC, and common pitfalls.
 - [About](https://evm-calculator.replit.app/about/): Background on the calculator, who built it, and why it exists.
 - [Privacy Policy](https://evm-calculator.replit.app/privacy-policy/): Privacy practices. The calculator does not collect personal data; all calculations are client-side.
 

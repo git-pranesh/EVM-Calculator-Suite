@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="index, follow" />
+    <title>PMP Formulas Cheat Sheet — EVM Calculator</title>
+    <meta name="description" content="Printable PMP Earned Value Management formulas cheat sheet: CPI, SPI, CV, SV, EAC, ETC, VAC, TCPI with definitions and interpretation rules for the PMP exam." />
+    <link rel="canonical" href="https://evm-calculator.replit.app/pmp-formulas/" />
+
+    <meta property="og:title" content="PMP Formulas Cheat Sheet — EVM Calculator" />
+    <meta property="og:description" content="Printable PMP Earned Value Management formulas cheat sheet: CPI, SPI, CV, SV, EAC, ETC, VAC, TCPI with definitions and interpretation rules for the PMP exam." />
+    <meta property="og:url" content="https://evm-calculator.replit.app/pmp-formulas/" />
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="EVM Calculator" />
+    <meta property="og:image" content="https://evm-calculator.replit.app/opengraph.jpg" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="PMP Formulas Cheat Sheet — EVM Calculator" />
+    <meta name="twitter:description" content="Printable PMP Earned Value Management formulas cheat sheet: CPI, SPI, CV, SV, EAC, ETC, VAC, TCPI with definitions and interpretation rules for the PMP exam." />
+    <meta name="twitter:image" content="https://evm-calculator.replit.app/opengraph.jpg" />
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://evm-calculator.replit.app/" },
+        { "@type": "ListItem", "position": 2, "name": "PMP Formulas", "item": "https://evm-calculator.replit.app/pmp-formulas/" }
+      ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "PMP Formulas Cheat Sheet — Earned Value Management",
+      "description": "Printable cheat sheet of all standard Earned Value Management formulas for the PMP exam.",
+      "mainEntityOfPage": "https://evm-calculator.replit.app/pmp-formulas/",
+      "author": { "@type": "Organization", "name": "EVM Calculator" },
+      "publisher": { "@type": "Organization", "name": "EVM Calculator" }
+    }
+    </script>
+
+    <style>
+      :root { color-scheme: light; }
+      body { font-family: Inter, system-ui, sans-serif; margin: 0; background: #f8fafc; color: #0f172a; line-height: 1.65; }
+      header { background: #fff; border-bottom: 1px solid #e2e8f0; padding: 1rem 1.5rem; }
+      header a.brand { color: #0f172a; text-decoration: none; font-weight: 700; }
+      header nav { float: right; font-size: 0.875rem; }
+      header nav a { color: #475569; text-decoration: none; margin-left: 1rem; }
+      header nav a:hover { color: #0f172a; }
+      main { max-width: 880px; margin: 0 auto; padding: 2.5rem 1.5rem 4rem; }
+      h1 { font-size: 2.25rem; letter-spacing: -0.02em; margin: 0 0 0.5rem; }
+      .lede { color: #475569; margin: 0 0 2rem; font-size: 1.05rem; }
+      .toolbar { display: flex; gap: 0.75rem; margin-bottom: 1.5rem; }
+      .toolbar button, .toolbar a { background: #1e40af; color: #fff; padding: 0.5rem 0.9rem; border-radius: 0.4rem; border: none; font-weight: 600; font-size: 0.9rem; cursor: pointer; text-decoration: none; }
+      .toolbar a.secondary { background: #fff; color: #1e40af; border: 1px solid #1e40af; }
+      .toolbar button:hover { background: #1e3a8a; }
+      table { width: 100%; border-collapse: collapse; background: #fff; border: 1px solid #e2e8f0; border-radius: 0.5rem; overflow: hidden; }
+      th, td { text-align: left; padding: 0.75rem 1rem; vertical-align: top; border-bottom: 1px solid #e2e8f0; }
+      th { background: #f1f5f9; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.04em; color: #475569; }
+      tr:last-child td { border-bottom: none; }
+      td.formula { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; white-space: nowrap; }
+      h2 { margin-top: 2.5rem; font-size: 1.5rem; }
+      ul { padding-left: 1.25rem; }
+      li { margin-bottom: 0.4rem; }
+      nav.crumbs { font-size: 0.875rem; color: #64748b; margin-bottom: 1.5rem; }
+      nav.crumbs a { color: #64748b; text-decoration: none; }
+      footer { border-top: 1px solid #e2e8f0; padding: 1.5rem; text-align: center; font-size: 0.875rem; color: #64748b; }
+      footer a { color: #64748b; margin: 0 0.5rem; }
+      @media print {
+        header, footer, .toolbar, nav.crumbs { display: none; }
+        body { background: #fff; }
+        main { padding: 0; max-width: none; }
+        table { border-radius: 0; }
+        @page { margin: 0.6in; }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <a class="brand" href="/">EVM Calculator</a>
+      <nav>
+        <a href="/">Home</a>
+        <a href="/cpi-calculator">CPI</a>
+        <a href="/eac-calculator">EAC</a>
+        <a href="/what-is-budget-at-completion/">What is BAC?</a>
+      </nav>
+    </header>
+    <main>
+      <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a> &rsaquo; PMP Formulas</nav>
+      <h1>PMP Formulas Cheat Sheet</h1>
+      <p class="lede">Every Earned Value Management formula you need for the PMP exam, on one printable page.</p>
+      <div class="toolbar">
+        <button type="button" onclick="window.print()">Print / Save as PDF</button>
+        <a class="secondary" href="/">Open the calculator</a>
+      </div>
+
+      <table>
+        <thead>
+          <tr><th>Metric</th><th>Formula</th><th>Meaning</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Cost Variance (CV)</td><td class="formula">CV = EV − AC</td><td>Positive = under budget. Negative = over budget.</td></tr>
+          <tr><td>Schedule Variance (SV)</td><td class="formula">SV = EV − PV</td><td>Positive = ahead of schedule. Negative = behind schedule.</td></tr>
+          <tr><td>Cost Performance Index (CPI)</td><td class="formula">CPI = EV / AC</td><td>≥ 1.0 efficient. &lt; 1.0 inefficient.</td></tr>
+          <tr><td>Schedule Performance Index (SPI)</td><td class="formula">SPI = EV / PV</td><td>≥ 1.0 on or ahead. &lt; 1.0 behind.</td></tr>
+          <tr><td>EAC (typical)</td><td class="formula">EAC = BAC / CPI</td><td>Default forecast — current cost performance continues.</td></tr>
+          <tr><td>EAC (atypical)</td><td class="formula">EAC = AC + (BAC − EV)</td><td>Use when current variance is a one-off.</td></tr>
+          <tr><td>EAC (cost &amp; schedule)</td><td class="formula">EAC = AC + ((BAC − EV) / (CPI × SPI))</td><td>Both cost and schedule performance continue.</td></tr>
+          <tr><td>Estimate to Complete (ETC)</td><td class="formula">ETC = EAC − AC</td><td>Cost expected from now to project finish.</td></tr>
+          <tr><td>Variance at Completion (VAC)</td><td class="formula">VAC = BAC − EAC</td><td>Projected surplus (positive) or deficit (negative).</td></tr>
+          <tr><td>To-Complete Performance Index (TCPI)</td><td class="formula">TCPI = (BAC − EV) / (BAC − AC)</td><td>≤ 1.0 achievable. &gt; 1.0 means future work must beat the original rate.</td></tr>
+        </tbody>
+      </table>
+
+      <h2>Quick interpretation rules</h2>
+      <ul>
+        <li><strong>Variances</strong> (CV, SV, VAC): positive is good, negative is bad.</li>
+        <li><strong>Indices</strong> (CPI, SPI): ≥ 1.0 is favorable, &lt; 1.0 is unfavorable.</li>
+        <li><strong>TCPI</strong> is inverted: ≤ 1.0 is achievable; &gt; 1.0 is a warning.</li>
+      </ul>
+
+      <h2>Common confusions</h2>
+      <ul>
+        <li>EV is in budget dollars, not actual dollars. It is the value of work earned at the planned rate.</li>
+        <li>BAC is set at the start of the project and does not change unless a formal baseline change is approved.</li>
+        <li>"At Completion" (EAC, VAC) refers to the end of the project, not "right now."</li>
+      </ul>
+    </main>
+    <footer>
+      <a href="/">Home</a> &middot;
+      <a href="/cpi-calculator">CPI</a> &middot;
+      <a href="/eac-calculator">EAC</a> &middot;
+      <a href="/what-is-budget-at-completion/">What is BAC?</a> &middot;
+      <a href="/about/">About</a> &middot;
+      <a href="/privacy-policy/">Privacy</a>
+    </footer>
+  </body>
+</html>

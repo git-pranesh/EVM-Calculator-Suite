@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="index, follow" />
+    <title>What is Budget at Completion (BAC)? — EVM Calculator</title>
+    <meta name="description" content="Complete guide to Budget at Completion (BAC) in Earned Value Management: definition, how it is set, the difference between BAC and EAC, common pitfalls, and worked examples for project managers and PMP candidates." />
+    <link rel="canonical" href="https://evm-calculator.replit.app/what-is-budget-at-completion/" />
+
+    <meta property="og:title" content="What is Budget at Completion (BAC)? — EVM Calculator" />
+    <meta property="og:description" content="Complete guide to Budget at Completion (BAC) in Earned Value Management: definition, how it is set, the difference between BAC and EAC, common pitfalls, and worked examples." />
+    <meta property="og:url" content="https://evm-calculator.replit.app/what-is-budget-at-completion/" />
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="EVM Calculator" />
+    <meta property="og:image" content="https://evm-calculator.replit.app/opengraph.jpg" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="What is Budget at Completion (BAC)? — EVM Calculator" />
+    <meta name="twitter:description" content="Complete guide to Budget at Completion (BAC) in Earned Value Management with definition, calculation steps, examples, and common pitfalls." />
+    <meta name="twitter:image" content="https://evm-calculator.replit.app/opengraph.jpg" />
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://evm-calculator.replit.app/" },
+        { "@type": "ListItem", "position": 2, "name": "What is Budget at Completion?", "item": "https://evm-calculator.replit.app/what-is-budget-at-completion/" }
+      ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "What is Budget at Completion (BAC)?",
+      "description": "Complete guide to Budget at Completion (BAC) in Earned Value Management.",
+      "mainEntityOfPage": "https://evm-calculator.replit.app/what-is-budget-at-completion/",
+      "author": { "@type": "Organization", "name": "EVM Calculator" },
+      "publisher": { "@type": "Organization", "name": "EVM Calculator" }
+    }
+    </script>
+
+    <style>
+      body { font-family: Inter, system-ui, sans-serif; margin: 0; background: #f8fafc; color: #0f172a; line-height: 1.75; }
+      header { background: #fff; border-bottom: 1px solid #e2e8f0; padding: 1rem 1.5rem; }
+      header a.brand { color: #0f172a; text-decoration: none; font-weight: 700; }
+      header nav { float: right; font-size: 0.875rem; }
+      header nav a { color: #475569; text-decoration: none; margin-left: 1rem; }
+      header nav a:hover { color: #0f172a; }
+      main { max-width: 760px; margin: 0 auto; padding: 2.5rem 1.5rem 4rem; }
+      h1 { font-size: 2.5rem; letter-spacing: -0.02em; margin: 0 0 1rem; line-height: 1.15; }
+      .lede { color: #475569; font-size: 1.1rem; margin: 0 0 2rem; }
+      h2 { font-size: 1.6rem; margin: 2.5rem 0 0.75rem; letter-spacing: -0.01em; }
+      h3 { font-size: 1.15rem; margin: 1.75rem 0 0.5rem; }
+      p { color: #1e293b; margin: 0 0 1rem; }
+      ul, ol { color: #1e293b; padding-left: 1.4rem; }
+      li { margin-bottom: 0.4rem; }
+      table { width: 100%; border-collapse: collapse; margin: 1rem 0 1.5rem; background: #fff; border: 1px solid #e2e8f0; border-radius: 0.4rem; overflow: hidden; }
+      th, td { text-align: left; padding: 0.6rem 0.9rem; border-bottom: 1px solid #e2e8f0; }
+      th { background: #f1f5f9; font-size: 0.85rem; text-transform: uppercase; color: #475569; }
+      tr:last-child td { border-bottom: none; }
+      code { background: #f1f5f9; padding: 0.1rem 0.35rem; border-radius: 0.25rem; font-size: 0.95em; }
+      .callout { background: #eff6ff; border-left: 4px solid #1e40af; padding: 0.9rem 1.1rem; margin: 1.25rem 0; border-radius: 0 0.4rem 0.4rem 0; }
+      .callout p { margin: 0; color: #1e3a8a; }
+      nav.crumbs { font-size: 0.875rem; color: #64748b; margin-bottom: 1.5rem; }
+      nav.crumbs a { color: #64748b; text-decoration: none; }
+      .related { margin-top: 3rem; border-top: 1px solid #e2e8f0; padding-top: 1.5rem; }
+      .related h2 { font-size: 1.15rem; margin-top: 0; }
+      .related ul { list-style: none; padding: 0; }
+      .related li { margin-bottom: 0.4rem; }
+      .related a { color: #1e40af; text-decoration: none; }
+      .related a:hover { text-decoration: underline; }
+      footer { border-top: 1px solid #e2e8f0; padding: 1.5rem; text-align: center; font-size: 0.875rem; color: #64748b; }
+      footer a { color: #64748b; margin: 0 0.5rem; }
+    </style>
+  </head>
+  <body>
+    <header>
+      <a class="brand" href="/">EVM Calculator</a>
+      <nav>
+        <a href="/">Home</a>
+        <a href="/cpi-calculator">CPI</a>
+        <a href="/eac-calculator">EAC</a>
+        <a href="/pmp-formulas/">PMP Formulas</a>
+      </nav>
+    </header>
+    <main>
+      <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a> &rsaquo; What is Budget at Completion?</nav>
+      <h1>What is Budget at Completion (BAC)?</h1>
+      <p class="lede">Budget at Completion (BAC) is the total approved budget for a project — the single number that anchors every other Earned Value Management (EVM) calculation. This guide explains what BAC is, how it is built, how it relates to EAC, and the mistakes that most often distort it in practice.</p>
+
+      <h2>The short definition</h2>
+      <p>BAC is the sum of all budgets allocated to the work to be performed on a project. It is established as part of the cost baseline at the beginning of the project and is the "100 percent point" of the planned spend curve. When a project finishes exactly on budget, the actual cost equals the BAC; when it overruns, actual cost exceeds BAC; when it underruns, actual cost falls below BAC.</p>
+      <p>In a simple project, BAC may be a single line item: <code>BAC = total approved budget</code>. In larger programs it is the rolled-up sum of every work package budget across the work breakdown structure (WBS). Either way, BAC is a fixed scalar — it does not change as the project progresses unless a formal change to the cost baseline is approved.</p>
+
+      <h2>Why BAC matters</h2>
+      <p>BAC is the foundation for every forecasting metric in EVM. Without an agreed BAC there is nothing to compare actual or earned values against. Specifically, BAC feeds three of the most-used EVM formulas:</p>
+      <ul>
+        <li><strong>EAC</strong> (Estimate at Completion) is most often computed as <code>BAC / CPI</code>.</li>
+        <li><strong>VAC</strong> (Variance at Completion) is <code>BAC − EAC</code> — the projected surplus or shortfall against budget.</li>
+        <li><strong>TCPI</strong> (To-Complete Performance Index) is <code>(BAC − EV) / (BAC − AC)</code> — the cost efficiency required on remaining work to finish within BAC.</li>
+      </ul>
+      <p>If BAC is wrong, every forecast above is wrong. That is why setting BAC carefully is one of the highest-leverage activities a project manager performs during initiation and planning.</p>
+
+      <h2>How BAC is set</h2>
+      <p>Setting BAC is a four-step process:</p>
+      <ol>
+        <li><strong>Decompose the scope.</strong> Break the project down to a level of detail (work packages) where each piece of work can be estimated with reasonable accuracy.</li>
+        <li><strong>Estimate each work package.</strong> Use analogous, parametric, three-point, or bottom-up estimating to assign a budget to every work package. The PMBOK Guide recommends bottom-up estimating for the highest accuracy.</li>
+        <li><strong>Aggregate to control accounts and to the project.</strong> Sum work package budgets up the WBS. The total at the top of the WBS is the budget without contingency or management reserve.</li>
+        <li><strong>Add contingency reserves.</strong> Contingency reserves cover known risks ("known unknowns") and are part of the cost baseline. Once they are added, the total becomes BAC. <em>Management reserves</em> for unknown risks are held outside the baseline and are not part of BAC.</li>
+      </ol>
+      <div class="callout">
+        <p><strong>Quick rule:</strong> BAC = sum of work package budgets + contingency reserves. Management reserves are added on top of BAC to compute the total project budget, but they sit outside the cost baseline.</p>
+      </div>
+
+      <h2>BAC versus EAC: a frequent source of confusion</h2>
+      <p>BAC and EAC look similar — both are "total project cost" numbers — but they answer two different questions:</p>
+      <table>
+        <thead>
+          <tr><th>Question</th><th>Answer</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>What did we plan to spend?</td><td>BAC (Budget at Completion)</td></tr>
+          <tr><td>What do we now expect to spend?</td><td>EAC (Estimate at Completion)</td></tr>
+        </tbody>
+      </table>
+      <p>BAC is fixed; EAC is dynamic. BAC was set when the cost baseline was approved. EAC is recomputed every reporting period using the latest performance data. The variance between them — VAC — is the signal that tells stakeholders whether the project is heading for an overrun or an underrun.</p>
+
+      <h2>Worked example</h2>
+      <p>Imagine a one-year construction project with the following baseline:</p>
+      <ul>
+        <li>Work package budgets total: $920,000</li>
+        <li>Contingency reserves for identified risks: $80,000</li>
+        <li>BAC = $920,000 + $80,000 = <strong>$1,000,000</strong></li>
+        <li>Management reserves (outside BAC): $50,000</li>
+        <li>Total project budget reported to the customer: $1,050,000</li>
+      </ul>
+      <p>Six months in, performance data shows EV = $400,000 and AC = $440,000. CPI = 0.909. The forecast becomes:</p>
+      <ul>
+        <li>EAC = BAC / CPI = 1,000,000 / 0.909 = <strong>$1,100,000</strong></li>
+        <li>VAC = BAC − EAC = 1,000,000 − 1,100,000 = <strong>−$100,000</strong></li>
+      </ul>
+      <p>The project is on track to overrun by approximately $100,000. The team can decide whether to absorb the overrun by tapping the $50,000 management reserve, formally re-baseline (which would change BAC), or take corrective action to bring CPI back above 1.0.</p>
+
+      <h2>Common pitfalls when setting BAC</h2>
+      <h3>1. Padding individual estimates</h3>
+      <p>Estimators sometimes add hidden buffers to their work package estimates to protect themselves. The cumulative effect is a BAC that is artificially high — the project appears to come in "under budget" but actually consumed buffers that should have been visible. Use explicit contingency reserves at the project level instead.</p>
+
+      <h3>2. Confusing BAC with the contract value</h3>
+      <p>The contract value (what the customer is paying) and BAC (what the project intends to spend) are different numbers. Contract value typically includes profit margin and management reserve; BAC is the baseline cost only.</p>
+
+      <h3>3. Forgetting non-labor costs</h3>
+      <p>Software projects often build BAC from labor hours alone and forget licenses, cloud spend, contractor fees, and tooling. Construction projects forget permitting, inspections, or insurance. A complete BAC includes every dollar that will be spent on the project.</p>
+
+      <h3>4. Re-baselining too quickly</h3>
+      <p>It is tempting to change BAC the first time a project goes over budget. Doing so destroys the historical performance signal and prevents EVM from doing its job. Re-baseline only when scope formally changes, not when performance is poor.</p>
+
+      <h3>5. Mixing constant and current dollars on long programs</h3>
+      <p>On multi-year programs, inflation and exchange-rate movement matter. Pick one currency basis (constant-year or current-year) and stick to it across BAC, EV, and AC. Mixing the two corrupts every variance and index.</p>
+
+      <h2>BAC and the cost baseline</h2>
+      <p>BAC is the top of the cost baseline — the time-phased budget plotted as the planned value (PV) curve. As the project progresses, the cumulative PV grows from zero at project start to BAC at project finish. EV is then plotted on the same axes to show how much value has actually been earned at each point in time, and AC shows how much has actually been spent. The three curves together — PV, EV, AC — are the canonical EVM chart, and BAC is the value all three converge toward at completion in a perfectly executed project.</p>
+
+      <h2>Practical tips for project managers</h2>
+      <ul>
+        <li><strong>Document assumptions.</strong> Every estimate that feeds BAC rests on assumptions. Capture them in a basis-of-estimate document so that future variances can be traced back to a specific assumption.</li>
+        <li><strong>Lock BAC at baseline approval.</strong> After the cost baseline is approved, treat BAC as a constant. Track changes through the integrated change control process.</li>
+        <li><strong>Report BAC alongside EAC every period.</strong> Stakeholders need both numbers to understand whether the project is forecasting an overrun or an underrun.</li>
+        <li><strong>Use BAC in the right denominator.</strong> TCPI and the typical EAC formula both depend on BAC; getting the denominator wrong is a top cause of misleading forecasts.</li>
+        <li><strong>Reconcile BAC against the WBS.</strong> Periodically re-roll work-package budgets up the WBS to make sure the recorded BAC still equals the sum of its parts.</li>
+      </ul>
+
+      <h2>BAC on the PMP exam</h2>
+      <p>The PMP exam tests BAC in two main ways. First, you may be asked to calculate forecasts (EAC, VAC, TCPI) using a given BAC. Second, you may face conceptual questions that distinguish BAC from EAC, contract value, or management reserves. Memorize the definition — "the total budget allocated to the project" — and remember that BAC is fixed once baselined, while EAC is a recomputed forecast.</p>
+
+      <h2>Summary</h2>
+      <p>Budget at Completion is the anchor of Earned Value Management. It is a single, baselined number representing the total approved cost of a project, built from the bottom up across the WBS plus contingency reserves. Once approved, BAC is fixed; every periodic forecast (EAC, VAC, TCPI) compares current performance against that fixed reference. A clean BAC, set with explicit assumptions and free of hidden padding, is what makes EVM forecasts trustworthy. Get BAC right and the rest of EVM follows; get BAC wrong and every downstream metric inherits the error.</p>
+
+      <div class="related">
+        <h2>Related references</h2>
+        <ul>
+          <li><a href="/">Open the full EVM Calculator</a></li>
+          <li><a href="/cpi-calculator">CPI Calculator</a></li>
+          <li><a href="/eac-calculator">EAC Calculator</a></li>
+          <li><a href="/pmp-formulas/">PMP Formulas cheat sheet</a></li>
+        </ul>
+      </div>
+    </main>
+    <footer>
+      <a href="/">Home</a> &middot;
+      <a href="/cpi-calculator">CPI</a> &middot;
+      <a href="/eac-calculator">EAC</a> &middot;
+      <a href="/pmp-formulas/">PMP Formulas</a> &middot;
+      <a href="/about/">About</a> &middot;
+      <a href="/privacy-policy/">Privacy</a>
+    </footer>
+  </body>
+</html>

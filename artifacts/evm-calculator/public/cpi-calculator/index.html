@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="index, follow" />
+    <title>CPI Calculator — Cost Performance Index | EVM Calculator</title>
+    <meta name="description" content="Free Cost Performance Index (CPI) calculator. Enter Earned Value and Actual Cost to compute CPI = EV / AC, with worked examples and PMP-style interpretation." />
+    <link rel="canonical" href="https://evm-calculator.replit.app/cpi-calculator/" />
+
+    <meta property="og:title" content="CPI Calculator — Cost Performance Index" />
+    <meta property="og:description" content="Free Cost Performance Index calculator. Compute CPI = EV / AC instantly with worked examples and interpretation rules." />
+    <meta property="og:url" content="https://evm-calculator.replit.app/cpi-calculator/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="EVM Calculator" />
+    <meta property="og:image" content="https://evm-calculator.replit.app/opengraph.jpg" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="CPI Calculator — Cost Performance Index" />
+    <meta name="twitter:description" content="Free Cost Performance Index calculator. Compute CPI = EV / AC instantly with worked examples and interpretation rules." />
+    <meta name="twitter:image" content="https://evm-calculator.replit.app/opengraph.jpg" />
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://evm-calculator.replit.app/" },
+        { "@type": "ListItem", "position": 2, "name": "CPI Calculator", "item": "https://evm-calculator.replit.app/cpi-calculator/" }
+      ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "HowTo",
+      "name": "How to calculate Cost Performance Index (CPI)",
+      "description": "Step-by-step procedure to compute the Cost Performance Index from Earned Value and Actual Cost.",
+      "totalTime": "PT1M",
+      "supply": [
+        { "@type": "HowToSupply", "name": "Earned Value (EV) — budgeted cost of work performed" },
+        { "@type": "HowToSupply", "name": "Actual Cost (AC) — actual cost of work performed" }
+      ],
+      "step": [
+        { "@type": "HowToStep", "name": "Enter Earned Value", "text": "Type the Earned Value (EV) of work completed so far into the EV field." },
+        { "@type": "HowToStep", "name": "Enter Actual Cost", "text": "Type the Actual Cost (AC) incurred for the work performed into the AC field." },
+        { "@type": "HowToStep", "name": "Read the result", "text": "The calculator divides EV by AC and displays the Cost Performance Index. CPI ≥ 1.0 is favorable; CPI < 1.0 indicates cost overrun." }
+      ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        { "@type": "Question", "name": "What is the Cost Performance Index (CPI)?", "acceptedAnswer": { "@type": "Answer", "text": "CPI is the ratio of Earned Value to Actual Cost. It tells you how many dollars of budgeted work the project earns for every dollar actually spent." } },
+        { "@type": "Question", "name": "What is the formula for CPI?", "acceptedAnswer": { "@type": "Answer", "text": "CPI = EV / AC, where EV is Earned Value and AC is Actual Cost." } },
+        { "@type": "Question", "name": "What does a CPI of 0.85 mean?", "acceptedAnswer": { "@type": "Answer", "text": "A CPI of 0.85 means the project is producing only 85 cents of value for every dollar spent — a 15 percent cost overrun on completed work." } },
+        { "@type": "Question", "name": "Is a higher CPI always better?", "acceptedAnswer": { "@type": "Answer", "text": "A CPI greater than or equal to 1.0 is favorable, but very high CPI values may also signal that the original budget was inflated or that work is being recorded as earned faster than it is actually being performed." } },
+        { "@type": "Question", "name": "How is CPI different from Schedule Performance Index?", "acceptedAnswer": { "@type": "Answer", "text": "CPI measures cost efficiency (EV ÷ AC). SPI measures schedule efficiency (EV ÷ PV). A project can be on schedule but over budget, or on budget but behind schedule." } }
+      ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Cost Performance Index (CPI) Calculator and Guide",
+      "description": "Calculator and explainer for the Cost Performance Index, including formula, interpretation, worked example, and common mistakes.",
+      "mainEntityOfPage": "https://evm-calculator.replit.app/cpi-calculator/",
+      "author": { "@type": "Organization", "name": "EVM Calculator" },
+      "publisher": { "@type": "Organization", "name": "EVM Calculator" },
+      "dateModified": "2026-05-03"
+    }
+    </script>
+
+    <style>
+      :root { color-scheme: light; }
+      body { font-family: Inter, system-ui, sans-serif; margin: 0; background: #f8fafc; color: #0f172a; line-height: 1.65; }
+      header.site { background: #fff; border-bottom: 1px solid #e2e8f0; padding: 1rem 1.5rem; display: flex; align-items: center; justify-content: space-between; }
+      header.site a.brand { color: #0f172a; text-decoration: none; font-weight: 700; }
+      header.site nav { font-size: 0.875rem; }
+      header.site nav a { color: #475569; text-decoration: none; margin-left: 1rem; }
+      header.site nav a:hover { color: #0f172a; }
+      main { max-width: 880px; margin: 0 auto; padding: 2.5rem 1.5rem 4rem; }
+      h1 { font-size: 2.25rem; letter-spacing: -0.02em; margin: 0 0 0.5rem; }
+      .lede { color: #475569; margin: 0 0 2rem; font-size: 1.05rem; }
+      h2 { margin-top: 2.5rem; font-size: 1.5rem; }
+      h3 { margin-top: 1.5rem; font-size: 1.1rem; }
+      nav.crumbs { font-size: 0.875rem; color: #64748b; margin-bottom: 1.5rem; }
+      nav.crumbs a { color: #64748b; text-decoration: none; }
+      .calc-box { background: #fff; border: 1px solid #e2e8f0; border-radius: 0.5rem; padding: 1.5rem; display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; align-items: end; }
+      @media (max-width: 640px) { .calc-box { grid-template-columns: 1fr; } }
+      .field label { display: block; font-weight: 600; font-size: 0.9rem; margin-bottom: 0.4rem; }
+      .field label .hint { font-weight: 400; color: #64748b; margin-left: 0.4rem; font-size: 0.85rem; }
+      .field input { width: 100%; box-sizing: border-box; padding: 0.6rem 0.8rem; border: 1px solid #cbd5e1; border-radius: 0.4rem; font: inherit; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }
+      .field input:focus { outline: 2px solid #1e40af; outline-offset: 1px; }
+      .result { background: #f1f5f9; border: 1px solid #e2e8f0; border-radius: 0.5rem; padding: 1.25rem; }
+      .result .label { font-size: 0.85rem; color: #475569; text-transform: uppercase; letter-spacing: 0.05em; }
+      .result .value { font-size: 2.25rem; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-weight: 700; margin: 0.25rem 0; }
+      .result .status { display: inline-block; padding: 0.15rem 0.55rem; border-radius: 999px; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; }
+      .status.good { background: #16a34a; color: #fff; }
+      .status.bad { background: #dc2626; color: #fff; }
+      .status.neutral { background: #cbd5e1; color: #0f172a; }
+      table { width: 100%; border-collapse: collapse; background: #fff; border: 1px solid #e2e8f0; border-radius: 0.5rem; overflow: hidden; margin: 1rem 0; }
+      th, td { text-align: left; padding: 0.65rem 0.9rem; border-bottom: 1px solid #e2e8f0; font-size: 0.95rem; }
+      th { background: #f1f5f9; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: #475569; }
+      tr:last-child td { border-bottom: none; }
+      td.formula { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }
+      details { background: #fff; border: 1px solid #e2e8f0; border-radius: 0.4rem; padding: 0.75rem 1rem; margin-bottom: 0.5rem; }
+      details summary { cursor: pointer; font-weight: 600; }
+      details[open] summary { margin-bottom: 0.5rem; }
+      .meta-row { font-size: 0.85rem; color: #64748b; margin-bottom: 1.5rem; }
+      .disclaimer { background: #fff7ed; border: 1px solid #fed7aa; color: #7c2d12; padding: 0.85rem 1rem; border-radius: 0.4rem; font-size: 0.85rem; margin-top: 2.5rem; }
+      footer.site { border-top: 1px solid #e2e8f0; padding: 1.5rem; text-align: center; font-size: 0.85rem; color: #64748b; line-height: 1.7; }
+      footer.site a { color: #64748b; margin: 0 0.5rem; text-decoration: none; }
+      footer.site a:hover { color: #0f172a; }
+      footer.site .small { display: block; font-size: 0.75rem; margin-top: 0.6rem; max-width: 700px; margin-left: auto; margin-right: auto; }
+    </style>
+  </head>
+  <body>
+    <header class="site">
+      <a class="brand" href="/">EVM Calculator</a>
+      <nav>
+        <a href="/">Home</a>
+        <a href="/eac-calculator/">EAC</a>
+        <a href="/pmp-formulas/">PMP Formulas</a>
+        <a href="/what-is-budget-at-completion/">What is BAC?</a>
+        <a href="/about/">About</a>
+      </nav>
+    </header>
+    <main>
+      <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a> &rsaquo; CPI Calculator</nav>
+      <h1>Cost Performance Index (CPI) Calculator</h1>
+      <p class="lede">Compute the Cost Performance Index instantly. CPI tells you how efficiently your project converts spend into completed work — divide Earned Value by Actual Cost.</p>
+      <p class="meta-row">Last reviewed: 3 May 2026 &middot; Source: <a href="https://www.pmi.org/" rel="nofollow noopener">Project Management Institute, The Standard for Earned Value Management</a></p>
+
+      <section aria-label="Calculator">
+        <div class="calc-box">
+          <div class="field">
+            <label for="ev">EV <span class="hint">Earned Value</span></label>
+            <input type="number" id="ev" inputmode="decimal" placeholder="e.g. 45000" />
+          </div>
+          <div class="field">
+            <label for="ac">AC <span class="hint">Actual Cost</span></label>
+            <input type="number" id="ac" inputmode="decimal" placeholder="e.g. 55000" />
+          </div>
+          <div class="result" style="grid-column: 1 / -1;">
+            <div class="label">CPI = EV / AC</div>
+            <div class="value" id="cpi-value">N/A</div>
+            <span class="status neutral" id="cpi-status">Enter values</span>
+          </div>
+        </div>
+      </section>
+
+      <h2>How to interpret CPI</h2>
+      <table>
+        <thead><tr><th>Range</th><th>Meaning</th></tr></thead>
+        <tbody>
+          <tr><td class="formula">CPI &gt; 1.0</td><td>Favorable. Each dollar spent has produced more than a dollar of budgeted work.</td></tr>
+          <tr><td class="formula">CPI = 1.0</td><td>Exactly on budget. Earned and actual cost match.</td></tr>
+          <tr><td class="formula">CPI &lt; 1.0</td><td>Unfavorable. The project is over budget on completed work.</td></tr>
+        </tbody>
+      </table>
+
+      <h2>Worked example</h2>
+      <p>A construction project has reported $35,000 of Earned Value and $38,000 of Actual Cost at the end of month 3. The Cost Performance Index is:</p>
+      <p style="font-family: ui-monospace, SFMono-Regular, Menlo, monospace; background: #fff; border: 1px solid #e2e8f0; padding: 0.75rem 1rem; border-radius: 0.4rem;">CPI = 35,000 / 38,000 = <strong>0.921</strong></p>
+      <p>The project is delivering only 92.1 cents of value per dollar spent. Forecasting forward, if this rate continues and the original BAC was $120,000, the Estimate at Completion would be EAC = 120,000 / 0.921 = <strong>$130,293</strong> — an $10,293 projected overrun. Use the <a href="/eac-calculator/">EAC Calculator</a> to extend this analysis.</p>
+
+      <h2>Common mistakes when computing CPI</h2>
+      <ul>
+        <li><strong>Confusing EV with PV.</strong> Earned Value is the budgeted cost of work <em>actually completed</em>, not the budget originally scheduled (which is Planned Value).</li>
+        <li><strong>Using committed cost instead of Actual Cost.</strong> AC is the cost actually incurred, not purchase orders or commitments outstanding.</li>
+        <li><strong>Mixing currencies or units.</strong> EV and AC must be in the same currency and time basis (cumulative-to-date or period-to-date, but not one of each).</li>
+        <li><strong>Ignoring scope changes.</strong> If the BAC has been re-baselined, EV must be recomputed against the new baseline before CPI is meaningful.</li>
+      </ul>
+
+      <h2>Frequently asked questions</h2>
+      <details><summary>What is a "good" CPI value?</summary><p>For project controls purposes, CPI ≥ 0.95 is generally tolerable, 1.0 is on budget, and ≥ 1.05 is healthy. Below 0.90 is typically a control trigger. Industry tolerances vary — defense and aerospace programs often use ±5% bands.</p></details>
+      <details><summary>Can CPI be negative?</summary><p>No. Both EV and AC are non-negative quantities (you cannot un-perform work, and actual costs cannot be negative). CPI ranges from 0 (no value earned despite spending) upward.</p></details>
+      <details><summary>How often should CPI be recalculated?</summary><p>Most monthly project status reports compute CPI cumulatively at the data date. Programs with weekly cadence may compute period CPI for early-warning purposes.</p></details>
+      <details><summary>How does CPI relate to TCPI?</summary><p>CPI looks at past performance. TCPI looks forward and tells you the cost performance required on remaining work to finish at the original BAC. If CPI is below 1.0, TCPI will be above 1.0 — a warning that future work must be more efficient than the plan.</p></details>
+
+      <h2>Related references</h2>
+      <ul>
+        <li><a href="/eac-calculator/">EAC Calculator — forecast total project cost</a></li>
+        <li><a href="/pmp-formulas/">PMP Formulas cheat sheet — all 9 EVM formulas</a></li>
+        <li><a href="/what-is-budget-at-completion/">What is Budget at Completion?</a></li>
+        <li><a href="/">Full EVM Calculator — compute all 8 metrics together</a></li>
+      </ul>
+
+      <p class="disclaimer"><strong>Disclaimer:</strong> This calculator is provided as an educational reference. It is not professional project management or financial advice. Always verify results against your organization's project controls policies and the latest PMI / PMBOK guidance.</p>
+    </main>
+    <footer class="site">
+      <div>
+        <a href="/">Home</a> &middot;
+        <a href="/cpi-calculator/">CPI</a> &middot;
+        <a href="/eac-calculator/">EAC</a> &middot;
+        <a href="/pmp-formulas/">PMP Formulas</a> &middot;
+        <a href="/what-is-budget-at-completion/">What is BAC?</a> &middot;
+        <a href="/about/">About</a> &middot;
+        <a href="/privacy-policy/">Privacy</a> &middot;
+        <a href="/terms-of-service/">Terms</a> &middot;
+        <a href="mailto:contact@evm-calculator.replit.app">Contact</a>
+      </div>
+      <span class="small">&copy; 2026 EVM Calculator. All calculations run in your browser. Educational reference; verify against PMBOK Guide and your organization's controls policy.</span>
+    </footer>
+    <script>
+      (function () {
+        var ev = document.getElementById("ev");
+        var ac = document.getElementById("ac");
+        var out = document.getElementById("cpi-value");
+        var status = document.getElementById("cpi-status");
+        function recompute() {
+          var e = parseFloat(ev.value);
+          var a = parseFloat(ac.value);
+          if (isNaN(e) || isNaN(a) || a === 0) {
+            out.textContent = "N/A";
+            status.textContent = "Enter values";
+            status.className = "status neutral";
+            return;
+          }
+          var cpi = e / a;
+          out.textContent = cpi.toFixed(3);
+          if (cpi >= 1) {
+            status.textContent = "Efficient";
+            status.className = "status good";
+          } else {
+            status.textContent = "Inefficient";
+            status.className = "status bad";
+          }
+        }
+        ev.addEventListener("input", recompute);
+        ac.addEventListener("input", recompute);
+      })();
+    </script>
+  </body>
+</html>

@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="robots" content="index, follow" />
     <title>What is Budget at Completion (BAC)? — EVM Calculator</title>
-    <meta name="description" content="Complete guide to Budget at Completion (BAC) in Earned Value Management: definition, how it is set, the difference between BAC and EAC, common pitfalls, and worked examples for project managers and PMP candidates." />
+    <meta name="description" content="Complete guide to Budget at Completion (BAC) in Earned Value Management: definition, how BAC is set, BAC versus EAC, worked examples, and common pitfalls for PMs." />
     <link rel="canonical" href="https://evm-calculator.replit.app/what-is-budget-at-completion/" />
 
     <meta property="og:title" content="What is Budget at Completion (BAC)? — EVM Calculator" />
@@ -40,7 +40,21 @@
       "description": "Complete guide to Budget at Completion (BAC) in Earned Value Management.",
       "mainEntityOfPage": "https://evm-calculator.replit.app/what-is-budget-at-completion/",
       "author": { "@type": "Organization", "name": "EVM Calculator" },
-      "publisher": { "@type": "Organization", "name": "EVM Calculator" }
+      "publisher": { "@type": "Organization", "name": "EVM Calculator" },
+      "dateModified": "2026-05-03"
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        { "@type": "Question", "name": "What is Budget at Completion (BAC)?", "acceptedAnswer": { "@type": "Answer", "text": "BAC is the total approved budget for a project — the sum of every work-package budget plus contingency reserves, established at the cost baseline." } },
+        { "@type": "Question", "name": "Is BAC the same as the contract value?", "acceptedAnswer": { "@type": "Answer", "text": "No. The contract value is what the customer pays and typically includes profit margin and management reserves. BAC is the baseline cost only." } },
+        { "@type": "Question", "name": "Does BAC include management reserves?", "acceptedAnswer": { "@type": "Answer", "text": "No. Contingency reserves for known risks are inside BAC. Management reserves for unknown risks sit outside the cost baseline and are added on top of BAC to compute the total project budget." } },
+        { "@type": "Question", "name": "When does BAC change?", "acceptedAnswer": { "@type": "Answer", "text": "BAC is fixed once the cost baseline is approved. It only changes through a formal baseline change as part of integrated change control — not because the project is over budget." } },
+        { "@type": "Question", "name": "How is BAC different from EAC?", "acceptedAnswer": { "@type": "Answer", "text": "BAC is what the project planned to cost. EAC is what it is now expected to cost based on current performance. The variance between them is VAC = BAC − EAC." } }
+      ]
     }
     </script>
 
@@ -83,8 +97,8 @@
       <a class="brand" href="/">EVM Calculator</a>
       <nav>
         <a href="/">Home</a>
-        <a href="/cpi-calculator">CPI</a>
-        <a href="/eac-calculator">EAC</a>
+        <a href="/cpi-calculator/">CPI</a>
+        <a href="/eac-calculator/">EAC</a>
         <a href="/pmp-formulas/">PMP Formulas</a>
       </nav>
     </header>
@@ -92,6 +106,7 @@
       <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a> &rsaquo; What is Budget at Completion?</nav>
       <h1>What is Budget at Completion (BAC)?</h1>
       <p class="lede">Budget at Completion (BAC) is the total approved budget for a project — the single number that anchors every other Earned Value Management (EVM) calculation. This guide explains what BAC is, how it is built, how it relates to EAC, and the mistakes that most often distort it in practice.</p>
+      <p style="font-size:0.85rem;color:#64748b;margin:0 0 1.75rem;">Last reviewed: 3 May 2026 &middot; Source: <a style="color:#1e40af" href="https://www.pmi.org/" rel="nofollow noopener">Project Management Institute, The Standard for Earned Value Management</a></p>
 
       <h2>The short definition</h2>
       <p>BAC is the sum of all budgets allocated to the work to be performed on a project. It is established as part of the cost baseline at the beginning of the project and is the "100 percent point" of the planned spend curve. When a project finishes exactly on budget, the actual cost equals the BAC; when it overruns, actual cost exceeds BAC; when it underruns, actual cost falls below BAC.</p>
@@ -181,23 +196,33 @@
       <h2>Summary</h2>
       <p>Budget at Completion is the anchor of Earned Value Management. It is a single, baselined number representing the total approved cost of a project, built from the bottom up across the WBS plus contingency reserves. Once approved, BAC is fixed; every periodic forecast (EAC, VAC, TCPI) compares current performance against that fixed reference. A clean BAC, set with explicit assumptions and free of hidden padding, is what makes EVM forecasts trustworthy. Get BAC right and the rest of EVM follows; get BAC wrong and every downstream metric inherits the error.</p>
 
+      <h2>Frequently asked questions</h2>
+      <details style="background:#fff;border:1px solid #e2e8f0;border-radius:0.4rem;padding:0.75rem 1rem;margin-bottom:0.5rem;"><summary style="cursor:pointer;font-weight:600;">Is BAC the same as the contract value?</summary><p style="margin-top:0.5rem;">No. Contract value typically includes profit margin and management reserve. BAC is the baseline project cost only.</p></details>
+      <details style="background:#fff;border:1px solid #e2e8f0;border-radius:0.4rem;padding:0.75rem 1rem;margin-bottom:0.5rem;"><summary style="cursor:pointer;font-weight:600;">Does BAC include management reserves?</summary><p style="margin-top:0.5rem;">No. Contingency reserves for known risks are inside BAC. Management reserves for unknown risks sit outside the cost baseline.</p></details>
+      <details style="background:#fff;border:1px solid #e2e8f0;border-radius:0.4rem;padding:0.75rem 1rem;margin-bottom:0.5rem;"><summary style="cursor:pointer;font-weight:600;">When does BAC change?</summary><p style="margin-top:0.5rem;">BAC is fixed once the cost baseline is approved. It only changes via a formal baseline change in integrated change control — not because the project is over budget.</p></details>
+      <details style="background:#fff;border:1px solid #e2e8f0;border-radius:0.4rem;padding:0.75rem 1rem;margin-bottom:0.5rem;"><summary style="cursor:pointer;font-weight:600;">How is BAC different from EAC?</summary><p style="margin-top:0.5rem;">BAC is what the project planned to cost. EAC is what it is now expected to cost. VAC = BAC − EAC is the variance.</p></details>
+
+      <p style="background:#fff7ed;border:1px solid #fed7aa;color:#7c2d12;padding:0.85rem 1rem;border-radius:0.4rem;font-size:0.85rem;margin-top:2.5rem;"><strong>Disclaimer:</strong> Educational reference only. Verify against your organization's project controls policies and the latest PMI / PMBOK guidance.</p>
+
       <div class="related">
         <h2>Related references</h2>
         <ul>
           <li><a href="/">Open the full EVM Calculator</a></li>
-          <li><a href="/cpi-calculator">CPI Calculator</a></li>
-          <li><a href="/eac-calculator">EAC Calculator</a></li>
+          <li><a href="/cpi-calculator/">CPI Calculator</a></li>
+          <li><a href="/eac-calculator/">EAC Calculator</a></li>
           <li><a href="/pmp-formulas/">PMP Formulas cheat sheet</a></li>
         </ul>
       </div>
     </main>
     <footer>
       <a href="/">Home</a> &middot;
-      <a href="/cpi-calculator">CPI</a> &middot;
-      <a href="/eac-calculator">EAC</a> &middot;
+      <a href="/cpi-calculator/">CPI</a> &middot;
+      <a href="/eac-calculator/">EAC</a> &middot;
       <a href="/pmp-formulas/">PMP Formulas</a> &middot;
       <a href="/about/">About</a> &middot;
-      <a href="/privacy-policy/">Privacy</a>
+      <a href="/privacy-policy/">Privacy</a> &middot;
+      <a href="/terms-of-service/">Terms</a> &middot;
+      <a href="mailto:contact@evm-calculator.replit.app">Contact</a>
     </footer>
   </body>
 </html>

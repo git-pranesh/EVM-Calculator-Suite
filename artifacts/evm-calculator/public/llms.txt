@@ -7,12 +7,17 @@ The tool calculates eight metrics in real time: Cost Performance Index (CPI), Sc
 ## Pages
 
 - [Home — EVM Calculator](https://evm-calculator.replit.app/): The main calculator. Enter BAC, PV, EV, and AC and instantly see all eight EVM metrics with formulas, color-coded status indicators, and a glossary.
-- [CPI Calculator](https://evm-calculator.replit.app/cpi-calculator): Focused single-metric calculator for Cost Performance Index from EV and AC.
-- [EAC Calculator](https://evm-calculator.replit.app/eac-calculator): Focused calculator for Estimate at Completion using BAC, EV, and AC.
+- [CPI Calculator](https://evm-calculator.replit.app/cpi-calculator/): Focused single-metric calculator for Cost Performance Index from EV and AC, with worked example, FAQ, and HowTo schema.
+- [EAC Calculator](https://evm-calculator.replit.app/eac-calculator/): Focused calculator for Estimate at Completion using BAC, EV, and AC, with all three EAC formulas, FAQ, and HowTo schema.
 - [PMP Formulas Cheat Sheet](https://evm-calculator.replit.app/pmp-formulas/): Printable reference of all standard EVM formulas for the PMP exam.
 - [What is Budget at Completion?](https://evm-calculator.replit.app/what-is-budget-at-completion/): Long-form guide to BAC, including how it is set, how it differs from EAC, and common pitfalls.
 - [About](https://evm-calculator.replit.app/about/): Background on the calculator, who built it, and why it exists.
 - [Privacy Policy](https://evm-calculator.replit.app/privacy-policy/): Privacy practices. The calculator does not collect personal data; all calculations are client-side.
+- [Terms of Service](https://evm-calculator.replit.app/terms-of-service/): Terms covering educational use, no warranty, and limitation of liability.
+
+## Author and trust
+
+The EVM Calculator is an independent educational tool. It cites the Project Management Institute's "Standard for Earned Value Management" as the formula source. PMP and PMBOK are PMI trademarks; this site is not affiliated with PMI. Contact: contact@evm-calculator.replit.app.
 
 ## Key formulas
 

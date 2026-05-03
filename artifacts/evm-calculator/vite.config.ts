@@ -9,18 +9,25 @@ import fs from "fs";
 const publicDirectoryIndex = () => ({
   name: "public-directory-index",
   configureServer(server: import("vite").ViteDevServer) {
-    server.middlewares.use((req, _res, next) => {
+    server.middlewares.use((req, res, next) => {
       if (!req.url) return next();
-      const [pathname] = req.url.split("?");
-      if (pathname.endsWith("/") && pathname !== "/") {
-        const candidate = path.resolve(
-          import.meta.dirname,
-          "public",
-          "." + pathname,
-          "index.html",
-        );
-        if (fs.existsSync(candidate)) {
-          req.url = pathname + "index.html" + (req.url.includes("?") ? "?" + req.url.split("?")[1] : "");
+      const qIndex = req.url.indexOf("?");
+      const pathname = qIndex >= 0 ? req.url.slice(0, qIndex) : req.url;
+      const query = qIndex >= 0 ? req.url.slice(qIndex) : "";
+      if (pathname === "/" || pathname.includes(".")) return next();
+      const dirCandidate = path.resolve(
+        import.meta.dirname,
+        "public",
+        "." + pathname.replace(/\/$/, ""),
+        "index.html",
+      );
+      if (fs.existsSync(dirCandidate)) {
+        if (pathname.endsWith("/")) {
+          req.url = pathname + "index.html" + query;
+        } else {
+          res.writeHead(301, { Location: pathname + "/" + query });
+          res.end();
+          return;
         }
       }
       next();

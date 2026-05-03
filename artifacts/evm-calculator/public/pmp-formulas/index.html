@@ -9,7 +9,7 @@
     <link rel="canonical" href="https://evm-calculator.replit.app/pmp-formulas/" />
 
     <meta property="og:title" content="PMP Formulas Cheat Sheet — EVM Calculator" />
-    <meta property="og:description" content="Printable PMP Earned Value Management formulas cheat sheet: CPI, SPI, CV, SV, EAC, ETC, VAC, TCPI with definitions and interpretation rules for the PMP exam." />
+    <meta property="og:description" content="Printable PMP Earned Value Management formulas cheat sheet with definitions and interpretation rules for the PMP exam." />
     <meta property="og:url" content="https://evm-calculator.replit.app/pmp-formulas/" />
     <meta property="og:type" content="article" />
     <meta property="og:site_name" content="EVM Calculator" />
@@ -17,7 +17,7 @@
 
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="PMP Formulas Cheat Sheet — EVM Calculator" />
-    <meta name="twitter:description" content="Printable PMP Earned Value Management formulas cheat sheet: CPI, SPI, CV, SV, EAC, ETC, VAC, TCPI with definitions and interpretation rules for the PMP exam." />
+    <meta name="twitter:description" content="Printable PMP Earned Value Management formulas cheat sheet for the PMP exam." />
     <meta name="twitter:image" content="https://evm-calculator.replit.app/opengraph.jpg" />
 
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -40,7 +40,20 @@
       "description": "Printable cheat sheet of all standard Earned Value Management formulas for the PMP exam.",
       "mainEntityOfPage": "https://evm-calculator.replit.app/pmp-formulas/",
       "author": { "@type": "Organization", "name": "EVM Calculator" },
-      "publisher": { "@type": "Organization", "name": "EVM Calculator" }
+      "publisher": { "@type": "Organization", "name": "EVM Calculator" },
+      "dateModified": "2026-05-03"
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        { "@type": "Question", "name": "How many EVM formulas are on the PMP exam?", "acceptedAnswer": { "@type": "Answer", "text": "The PMP exam draws from a standard set of about ten Earned Value Management formulas: CV, SV, CPI, SPI, three EAC variants, ETC, VAC, and TCPI." } },
+        { "@type": "Question", "name": "Which EAC formula should I use on the PMP exam?", "acceptedAnswer": { "@type": "Answer", "text": "If the question does not specify, use EAC = BAC / CPI (the typical formula). Use the atypical formula EAC = AC + (BAC − EV) only when the question states the current variance was a one-off." } },
+        { "@type": "Question", "name": "Are positive variances always good?", "acceptedAnswer": { "@type": "Answer", "text": "For CV, SV, and VAC, positive values are favorable. For TCPI, the rule is inverted — values at or below 1.0 are achievable while values above 1.0 are a warning." } },
+        { "@type": "Question", "name": "Is this cheat sheet aligned with the PMBOK Guide?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. The formulas match those defined in the Project Management Institute's Standard for Earned Value Management and the PMBOK Guide." } }
+      ]
     }
     </script>
 
@@ -54,7 +67,9 @@
       header nav a:hover { color: #0f172a; }
       main { max-width: 880px; margin: 0 auto; padding: 2.5rem 1.5rem 4rem; }
       h1 { font-size: 2.25rem; letter-spacing: -0.02em; margin: 0 0 0.5rem; }
-      .lede { color: #475569; margin: 0 0 2rem; font-size: 1.05rem; }
+      .lede { color: #475569; margin: 0 0 1rem; font-size: 1.05rem; }
+      .meta-row { font-size: 0.85rem; color: #64748b; margin-bottom: 1.5rem; }
+      .meta-row a { color: #1e40af; }
       .toolbar { display: flex; gap: 0.75rem; margin-bottom: 1.5rem; }
       .toolbar button, .toolbar a { background: #1e40af; color: #fff; padding: 0.5rem 0.9rem; border-radius: 0.4rem; border: none; font-weight: 600; font-size: 0.9rem; cursor: pointer; text-decoration: none; }
       .toolbar a.secondary { background: #fff; color: #1e40af; border: 1px solid #1e40af; }
@@ -67,12 +82,17 @@
       h2 { margin-top: 2.5rem; font-size: 1.5rem; }
       ul { padding-left: 1.25rem; }
       li { margin-bottom: 0.4rem; }
+      details { background: #fff; border: 1px solid #e2e8f0; border-radius: 0.4rem; padding: 0.75rem 1rem; margin-bottom: 0.5rem; }
+      details summary { cursor: pointer; font-weight: 600; }
+      details[open] summary { margin-bottom: 0.5rem; }
       nav.crumbs { font-size: 0.875rem; color: #64748b; margin-bottom: 1.5rem; }
       nav.crumbs a { color: #64748b; text-decoration: none; }
-      footer { border-top: 1px solid #e2e8f0; padding: 1.5rem; text-align: center; font-size: 0.875rem; color: #64748b; }
-      footer a { color: #64748b; margin: 0 0.5rem; }
+      .disclaimer { background: #fff7ed; border: 1px solid #fed7aa; color: #7c2d12; padding: 0.85rem 1rem; border-radius: 0.4rem; font-size: 0.85rem; margin-top: 2.5rem; }
+      footer { border-top: 1px solid #e2e8f0; padding: 1.5rem; text-align: center; font-size: 0.85rem; color: #64748b; line-height: 1.7; }
+      footer a { color: #64748b; margin: 0 0.5rem; text-decoration: none; }
+      footer .small { display: block; font-size: 0.75rem; margin-top: 0.6rem; max-width: 700px; margin-left: auto; margin-right: auto; }
       @media print {
-        header, footer, .toolbar, nav.crumbs { display: none; }
+        header, footer, .toolbar, nav.crumbs, details, .disclaimer, .meta-row { display: none; }
         body { background: #fff; }
         main { padding: 0; max-width: none; }
         table { border-radius: 0; }
@@ -85,8 +105,8 @@
       <a class="brand" href="/">EVM Calculator</a>
       <nav>
         <a href="/">Home</a>
-        <a href="/cpi-calculator">CPI</a>
-        <a href="/eac-calculator">EAC</a>
+        <a href="/cpi-calculator/">CPI</a>
+        <a href="/eac-calculator/">EAC</a>
         <a href="/what-is-budget-at-completion/">What is BAC?</a>
       </nav>
     </header>
@@ -94,6 +114,7 @@
       <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a> &rsaquo; PMP Formulas</nav>
       <h1>PMP Formulas Cheat Sheet</h1>
       <p class="lede">Every Earned Value Management formula you need for the PMP exam, on one printable page.</p>
+      <p class="meta-row">Last reviewed: 3 May 2026 &middot; Source: <a href="https://www.pmi.org/" rel="nofollow noopener">Project Management Institute, The Standard for Earned Value Management</a></p>
       <div class="toolbar">
         <button type="button" onclick="window.print()">Print / Save as PDF</button>
         <a class="secondary" href="/">Open the calculator</a>
@@ -130,14 +151,27 @@
         <li>BAC is set at the start of the project and does not change unless a formal baseline change is approved.</li>
         <li>"At Completion" (EAC, VAC) refers to the end of the project, not "right now."</li>
       </ul>
+
+      <h2>Frequently asked questions</h2>
+      <details><summary>How many EVM formulas are on the PMP exam?</summary><p>The PMP exam draws from a standard set of about ten EVM formulas: CV, SV, CPI, SPI, three EAC variants, ETC, VAC, and TCPI. Memorize the formula and the interpretation rule for each.</p></details>
+      <details><summary>Which EAC formula should I use?</summary><p>Default to <code>EAC = BAC / CPI</code>. Use the atypical formula <code>EAC = AC + (BAC − EV)</code> only when the question states the current variance was a one-off. Use the cost-and-schedule formula when both performance indices are expected to continue.</p></details>
+      <details><summary>Are positive variances always good?</summary><p>For CV, SV, and VAC, positive is favorable. For TCPI the rule is inverted: ≤ 1.0 is achievable, while &gt; 1.0 is a warning that remaining work must beat the original cost plan.</p></details>
+      <details><summary>Is this cheat sheet aligned with the PMBOK Guide?</summary><p>Yes. The formulas match those defined in the PMI Standard for Earned Value Management and the PMBOK Guide. Always cross-check against the latest published edition before relying on a result for a real project.</p></details>
+
+      <p class="disclaimer"><strong>Disclaimer:</strong> Educational reference only. Verify against your organization's project controls policies and the latest PMI / PMBOK Guide. "PMP" and "PMBOK" are trademarks of PMI; this site is not affiliated with PMI.</p>
     </main>
     <footer>
-      <a href="/">Home</a> &middot;
-      <a href="/cpi-calculator">CPI</a> &middot;
-      <a href="/eac-calculator">EAC</a> &middot;
-      <a href="/what-is-budget-at-completion/">What is BAC?</a> &middot;
-      <a href="/about/">About</a> &middot;
-      <a href="/privacy-policy/">Privacy</a>
+      <div>
+        <a href="/">Home</a> &middot;
+        <a href="/cpi-calculator/">CPI</a> &middot;
+        <a href="/eac-calculator/">EAC</a> &middot;
+        <a href="/what-is-budget-at-completion/">What is BAC?</a> &middot;
+        <a href="/about/">About</a> &middot;
+        <a href="/privacy-policy/">Privacy</a> &middot;
+        <a href="/terms-of-service/">Terms</a> &middot;
+        <a href="mailto:contact@evm-calculator.replit.app">Contact</a>
+      </div>
+      <span class="small">&copy; 2026 EVM Calculator. Educational reference; verify against PMBOK Guide and your organization's controls policy.</span>
     </footer>
   </body>
 </html>

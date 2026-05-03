@@ -9,7 +9,7 @@ import { Label } from "@/components/ui/label";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
-import { Info, Calculator, InfoIcon, Printer, BookOpen, ArrowLeft } from "lucide-react";
+import { Info, Calculator, InfoIcon, Printer, BookOpen } from "lucide-react";
 import NotFound from "@/pages/not-found";
 
 const queryClient = new QueryClient();
@@ -162,8 +162,8 @@ function SiteHeader() {
           <PmpExamButton />
           <PrintButton />
           <nav aria-label="Primary" className="hidden md:flex items-center gap-4 ml-2 text-sm font-medium text-muted-foreground">
-            <Link href="/cpi-calculator" className="hover:text-foreground">CPI</Link>
-            <Link href="/eac-calculator" className="hover:text-foreground">EAC</Link>
+            <a href="/cpi-calculator/" className="hover:text-foreground">CPI</a>
+            <a href="/eac-calculator/" className="hover:text-foreground">EAC</a>
             <a href="/pmp-formulas/" className="hover:text-foreground">PMP Formulas</a>
             <a href="/about/" className="hover:text-foreground">About</a>
           </nav>
@@ -176,18 +176,30 @@ function SiteHeader() {
 function SiteFooter() {
   return (
     <footer className="mt-20 border-t bg-card no-print">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-muted-foreground">
-        <p>&copy; {new Date().getFullYear()} EVM Calculator. All calculations run in your browser.</p>
-        <nav aria-label="Footer" className="flex flex-wrap items-center gap-x-5 gap-y-2 justify-center">
-          <Link href="/" className="hover:text-foreground">Home</Link>
-          <Link href="/cpi-calculator" className="hover:text-foreground">CPI Calculator</Link>
-          <Link href="/eac-calculator" className="hover:text-foreground">EAC Calculator</Link>
-          <a href="/pmp-formulas/" className="hover:text-foreground">PMP Formulas</a>
-          <a href="/what-is-budget-at-completion/" className="hover:text-foreground">What is BAC?</a>
-          <a href="/about/" className="hover:text-foreground">About</a>
-          <a href="/privacy-policy/" className="hover:text-foreground">Privacy</a>
-          <a href="/sitemap.xml" className="hover:text-foreground">Sitemap</a>
-        </nav>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-4 text-sm text-muted-foreground">
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
+          <p>&copy; {new Date().getFullYear()} EVM Calculator. All calculations run in your browser.</p>
+          <nav aria-label="Footer" className="flex flex-wrap items-center gap-x-5 gap-y-2 justify-center">
+            <Link href="/" className="hover:text-foreground">Home</Link>
+            <a href="/cpi-calculator/" className="hover:text-foreground">CPI Calculator</a>
+            <a href="/eac-calculator/" className="hover:text-foreground">EAC Calculator</a>
+            <a href="/pmp-formulas/" className="hover:text-foreground">PMP Formulas</a>
+            <a href="/what-is-budget-at-completion/" className="hover:text-foreground">What is BAC?</a>
+            <a href="/about/" className="hover:text-foreground">About</a>
+            <a href="/privacy-policy/" className="hover:text-foreground">Privacy</a>
+            <a href="/terms-of-service/" className="hover:text-foreground">Terms</a>
+            <a href="mailto:contact@evm-calculator.replit.app" className="hover:text-foreground">Contact</a>
+            <a href="/sitemap.xml" className="hover:text-foreground">Sitemap</a>
+          </nav>
+        </div>
+        <div className="text-xs text-muted-foreground/80 max-w-4xl mx-auto text-center sm:text-left leading-relaxed">
+          <p>
+            Last reviewed: 3 May 2026. Educational reference only — not professional project management or financial advice.
+            Verify results against your organization's project controls policies and the latest{" "}
+            <a href="https://www.pmi.org/" rel="nofollow noopener" className="underline hover:text-foreground">PMI / PMBOK</a> guidance.
+            "PMP" and "PMBOK" are trademarks of the Project Management Institute; this site is not affiliated with PMI.
+          </p>
+        </div>
       </div>
     </footer>
   );
@@ -399,14 +411,14 @@ function Home() {
       <section className="mt-16 border-t pt-10" aria-labelledby="related-heading">
         <h2 id="related-heading" className="text-xl font-semibold mb-6">Focused calculators &amp; references</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-          <Link href="/cpi-calculator" className="block border rounded-lg p-4 hover:shadow-md transition-shadow">
+          <a href="/cpi-calculator/" className="block border rounded-lg p-4 hover:shadow-md transition-shadow">
             <div className="font-semibold">CPI Calculator</div>
             <p className="text-sm text-muted-foreground mt-1">Compute Cost Performance Index from EV and AC alone.</p>
-          </Link>
-          <Link href="/eac-calculator" className="block border rounded-lg p-4 hover:shadow-md transition-shadow">
+          </a>
+          <a href="/eac-calculator/" className="block border rounded-lg p-4 hover:shadow-md transition-shadow">
             <div className="font-semibold">EAC Calculator</div>
             <p className="text-sm text-muted-foreground mt-1">Forecast total project cost using BAC, EV, and AC.</p>
-          </Link>
+          </a>
           <a href="/what-is-budget-at-completion/" className="block border rounded-lg p-4 hover:shadow-md transition-shadow">
             <div className="font-semibold">What is Budget at Completion?</div>
             <p className="text-sm text-muted-foreground mt-1">Long-form guide to BAC, its role in EVM, and how to set it.</p>
@@ -433,165 +445,10 @@ function Home() {
   );
 }
 
-function SubCalculatorLayout({
-  title,
-  description,
-  children,
-}: {
-  title: string;
-  description: string;
-  children: React.ReactNode;
-}) {
-  return (
-    <main className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-10">
-      <Link href="/" className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground mb-6 no-print">
-        <ArrowLeft className="h-4 w-4" aria-hidden="true" />
-        Back to full EVM Calculator
-      </Link>
-      <h1 className="text-3xl sm:text-4xl font-bold tracking-tight mb-3">{title}</h1>
-      <p className="text-lg text-muted-foreground leading-relaxed mb-10 max-w-2xl">{description}</p>
-      {children}
-      <section className="mt-16 border-t pt-8 no-print" aria-label="Related references">
-        <h2 className="text-base font-semibold mb-3">Related references</h2>
-        <ul className="text-sm text-muted-foreground space-y-1.5">
-          <li><a className="hover:text-foreground underline underline-offset-2" href="/pmp-formulas/">PMP Formulas cheat sheet</a></li>
-          <li><a className="hover:text-foreground underline underline-offset-2" href="/what-is-budget-at-completion/">What is Budget at Completion?</a></li>
-          <li><Link className="hover:text-foreground underline underline-offset-2" href="/cpi-calculator">CPI Calculator</Link></li>
-          <li><Link className="hover:text-foreground underline underline-offset-2" href="/eac-calculator">EAC Calculator</Link></li>
-        </ul>
-      </section>
-    </main>
-  );
-}
-
-function CpiCalculatorPage() {
-  useSeo({
-    title: "CPI Calculator — Cost Performance Index | EVM Calculator",
-    description: "Free Cost Performance Index (CPI) calculator. Enter Earned Value and Actual Cost to compute CPI = EV / AC, with interpretation and examples.",
-    canonical: `${SITE_URL}/cpi-calculator`,
-  });
-
-  const [ev, setEv] = useState<number | undefined>(undefined);
-  const [ac, setAc] = useState<number | undefined>(undefined);
-  const cpi = (ev !== undefined && ac !== undefined && ac !== 0) ? ev / ac : undefined;
-  const status = getIndexStatus(cpi);
-
-  return (
-    <SubCalculatorLayout
-      title="Cost Performance Index (CPI) Calculator"
-      description="Cost Performance Index measures how efficiently the project is using its budget. CPI is calculated by dividing Earned Value by Actual Cost. A CPI of 1.0 or higher means the project is on or under budget; a CPI below 1.0 indicates cost overrun."
-    >
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
-        <Card className="border-primary/20">
-          <CardHeader className="bg-muted/50 border-b">
-            <CardTitle className="text-base">Inputs</CardTitle>
-            <CardDescription>CPI = EV / AC</CardDescription>
-          </CardHeader>
-          <CardContent className="space-y-5 pt-6">
-            <NumberField id="cpi-ev" label="EV" hint="Earned Value" tooltip="Budgeted cost of work performed." placeholder="e.g. 45000" value={ev} onChange={setEv} />
-            <NumberField id="cpi-ac" label="AC" hint="Actual Cost" tooltip="Real cost spent on the work performed." placeholder="e.g. 55000" value={ac} onChange={setAc} />
-          </CardContent>
-        </Card>
-        <MetricCard
-          title="Cost Performance Index (CPI)"
-          formula="CPI = EV / AC"
-          value={cpi}
-          explanation="A CPI of 1.0 or higher means the project is delivering at least one dollar of work per dollar spent. Below 1.0 indicates cost inefficiency."
-          status={status}
-          goodLabel="Efficient"
-          badLabel="Inefficient"
-        />
-      </div>
-      <section className="mt-12 prose prose-slate max-w-none dark:prose-invert">
-        <h2>How to interpret CPI</h2>
-        <ul>
-          <li><strong>CPI &gt; 1.0</strong> — favorable. The project is producing more value than its cost so far.</li>
-          <li><strong>CPI = 1.0</strong> — exactly on budget. Earned and actual cost are equal.</li>
-          <li><strong>CPI &lt; 1.0</strong> — unfavorable. Each dollar spent is producing less than a dollar of work.</li>
-        </ul>
-        <h2>Worked example</h2>
-        <p>If a project has EV = $35,000 and AC = $38,000, then CPI = 35,000 / 38,000 = <strong>0.921</strong>. The project is delivering only 92.1 cents of value per dollar spent — a sign of cost overrun that should trigger a control action.</p>
-      </section>
-    </SubCalculatorLayout>
-  );
-}
-
-function EacCalculatorPage() {
-  useSeo({
-    title: "EAC Calculator — Estimate at Completion | EVM Calculator",
-    description: "Free Estimate at Completion (EAC) calculator. Enter BAC, EV, and AC to compute EAC = BAC / CPI and forecast total project cost.",
-    canonical: `${SITE_URL}/eac-calculator`,
-  });
-
-  const [bac, setBac] = useState<number | undefined>(undefined);
-  const [ev, setEv] = useState<number | undefined>(undefined);
-  const [ac, setAc] = useState<number | undefined>(undefined);
-
-  const cpi = (ev !== undefined && ac !== undefined && ac !== 0) ? ev / ac : undefined;
-  const eac = (bac !== undefined && cpi !== undefined && cpi !== 0) ? bac / cpi : undefined;
-  const vac = (bac !== undefined && eac !== undefined) ? bac - eac : undefined;
-
-  return (
-    <SubCalculatorLayout
-      title="Estimate at Completion (EAC) Calculator"
-      description="Estimate at Completion forecasts the total cost of the project given current performance. The most common formula assumes current cost performance continues: EAC = BAC / CPI. The calculator also reports projected variance at completion."
-    >
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
-        <Card className="border-primary/20">
-          <CardHeader className="bg-muted/50 border-b">
-            <CardTitle className="text-base">Inputs</CardTitle>
-            <CardDescription>EAC = BAC / CPI, where CPI = EV / AC</CardDescription>
-          </CardHeader>
-          <CardContent className="space-y-5 pt-6">
-            <NumberField id="eac-bac" label="BAC" hint="Budget at Completion" tooltip="Total approved budget for the project." placeholder="e.g. 100000" value={bac} onChange={setBac} />
-            <NumberField id="eac-ev" label="EV" hint="Earned Value" tooltip="Budgeted cost of work performed." placeholder="e.g. 35000" value={ev} onChange={setEv} />
-            <NumberField id="eac-ac" label="AC" hint="Actual Cost" tooltip="Real cost spent on the work performed." placeholder="e.g. 38000" value={ac} onChange={setAc} />
-          </CardContent>
-        </Card>
-        <div className="space-y-4">
-          <MetricCard
-            title="Estimate at Completion (EAC)"
-            formula="EAC = BAC / CPI"
-            value={eac}
-            explanation="The forecasted total cost of the project assuming the current cost performance continues to the end."
-            status="neutral"
-            goodLabel=""
-            badLabel=""
-            isMoney
-          />
-          <MetricCard
-            title="Variance at Completion (VAC)"
-            formula="VAC = BAC - EAC"
-            value={vac}
-            explanation="Projected surplus (positive) or deficit (negative) versus the original budget."
-            status={getVarianceStatus(vac)}
-            goodLabel="Surplus"
-            badLabel="Deficit"
-            isMoney
-          />
-        </div>
-      </div>
-      <section className="mt-12 prose prose-slate max-w-none dark:prose-invert">
-        <h2>Choosing an EAC formula</h2>
-        <p>Project managers typically use one of three EAC formulas depending on the situation:</p>
-        <ul>
-          <li><strong>EAC = BAC / CPI</strong> — assumes current cost performance continues. Default for most projects.</li>
-          <li><strong>EAC = AC + (BAC − EV)</strong> — assumes the current variance was a one-off and remaining work will run at the original rate.</li>
-          <li><strong>EAC = AC + ((BAC − EV) / (CPI × SPI))</strong> — assumes both cost and schedule performance will continue.</li>
-        </ul>
-        <h2>Worked example</h2>
-        <p>BAC = $100,000, EV = $35,000, AC = $38,000. CPI = 35,000 / 38,000 = 0.9211. EAC = 100,000 / 0.9211 = <strong>$108,571.43</strong>. VAC = 100,000 − 108,571.43 = <strong>−$8,571.43</strong>, indicating a projected ~$8.5K overrun.</p>
-      </section>
-    </SubCalculatorLayout>
-  );
-}
-
 function Router() {
   return (
     <Switch>
       <Route path="/" component={Home} />
-      <Route path="/cpi-calculator" component={CpiCalculatorPage} />
-      <Route path="/eac-calculator" component={EacCalculatorPage} />
       <Route component={NotFound} />
     </Switch>
   );

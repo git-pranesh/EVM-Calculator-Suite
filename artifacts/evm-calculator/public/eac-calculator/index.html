@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="index, follow" />
+    <title>EAC Calculator — Estimate at Completion | EVM Calculator</title>
+    <meta name="description" content="Free Estimate at Completion (EAC) calculator. Forecast total project cost using BAC, EV, and AC with the standard EAC = BAC / CPI formula and worked examples." />
+    <link rel="canonical" href="https://evm-calculator.replit.app/eac-calculator/" />
+
+    <meta property="og:title" content="EAC Calculator — Estimate at Completion" />
+    <meta property="og:description" content="Forecast total project cost using EAC = BAC / CPI. Free calculator with worked example, alternative formulas, and PMP-style interpretation." />
+    <meta property="og:url" content="https://evm-calculator.replit.app/eac-calculator/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="EVM Calculator" />
+    <meta property="og:image" content="https://evm-calculator.replit.app/opengraph.jpg" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="EAC Calculator — Estimate at Completion" />
+    <meta name="twitter:description" content="Forecast total project cost using EAC = BAC / CPI. Free calculator with worked example and alternative formulas." />
+    <meta name="twitter:image" content="https://evm-calculator.replit.app/opengraph.jpg" />
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://evm-calculator.replit.app/" },
+        { "@type": "ListItem", "position": 2, "name": "EAC Calculator", "item": "https://evm-calculator.replit.app/eac-calculator/" }
+      ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "HowTo",
+      "name": "How to calculate Estimate at Completion (EAC)",
+      "description": "Step-by-step procedure to forecast a project's total cost using Budget at Completion, Earned Value, and Actual Cost.",
+      "totalTime": "PT2M",
+      "supply": [
+        { "@type": "HowToSupply", "name": "Budget at Completion (BAC)" },
+        { "@type": "HowToSupply", "name": "Earned Value (EV)" },
+        { "@type": "HowToSupply", "name": "Actual Cost (AC)" }
+      ],
+      "step": [
+        { "@type": "HowToStep", "name": "Enter BAC", "text": "Enter the original Budget at Completion." },
+        { "@type": "HowToStep", "name": "Enter EV and AC", "text": "Enter the cumulative Earned Value and Actual Cost as of the data date." },
+        { "@type": "HowToStep", "name": "Compute CPI", "text": "The calculator computes the Cost Performance Index, CPI = EV / AC." },
+        { "@type": "HowToStep", "name": "Forecast EAC", "text": "EAC = BAC / CPI gives the forecast total cost assuming current cost performance continues to project completion." },
+        { "@type": "HowToStep", "name": "Read VAC", "text": "VAC = BAC − EAC indicates the projected surplus (positive) or deficit (negative) at completion." }
+      ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        { "@type": "Question", "name": "What is Estimate at Completion (EAC)?", "acceptedAnswer": { "@type": "Answer", "text": "Estimate at Completion is the forecasted total cost of a project given its current performance. It updates the original BAC with what the project is now expected to cost." } },
+        { "@type": "Question", "name": "What is the most common EAC formula?", "acceptedAnswer": { "@type": "Answer", "text": "EAC = BAC / CPI. This assumes the current cost performance index will hold for the remaining work." } },
+        { "@type": "Question", "name": "When should I use EAC = AC + (BAC − EV)?", "acceptedAnswer": { "@type": "Answer", "text": "Use the atypical formula when the current cost variance is a one-off and remaining work is expected to follow the original plan." } },
+        { "@type": "Question", "name": "What is VAC?", "acceptedAnswer": { "@type": "Answer", "text": "Variance at Completion equals BAC minus EAC. A positive VAC is a forecast surplus; a negative VAC is a forecast deficit." } },
+        { "@type": "Question", "name": "How is EAC different from ETC?", "acceptedAnswer": { "@type": "Answer", "text": "EAC is the total project cost. ETC (Estimate to Complete) is the cost expected from now until the end of the project: ETC = EAC − AC." } }
+      ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Estimate at Completion (EAC) Calculator and Guide",
+      "description": "Calculator and explainer for Estimate at Completion in Earned Value Management, including formulas, interpretation, worked example, and common mistakes.",
+      "mainEntityOfPage": "https://evm-calculator.replit.app/eac-calculator/",
+      "author": { "@type": "Organization", "name": "EVM Calculator" },
+      "publisher": { "@type": "Organization", "name": "EVM Calculator" },
+      "dateModified": "2026-05-03"
+    }
+    </script>
+
+    <style>
+      :root { color-scheme: light; }
+      body { font-family: Inter, system-ui, sans-serif; margin: 0; background: #f8fafc; color: #0f172a; line-height: 1.65; }
+      header.site { background: #fff; border-bottom: 1px solid #e2e8f0; padding: 1rem 1.5rem; display: flex; align-items: center; justify-content: space-between; }
+      header.site a.brand { color: #0f172a; text-decoration: none; font-weight: 700; }
+      header.site nav { font-size: 0.875rem; }
+      header.site nav a { color: #475569; text-decoration: none; margin-left: 1rem; }
+      header.site nav a:hover { color: #0f172a; }
+      main { max-width: 880px; margin: 0 auto; padding: 2.5rem 1.5rem 4rem; }
+      h1 { font-size: 2.25rem; letter-spacing: -0.02em; margin: 0 0 0.5rem; }
+      .lede { color: #475569; margin: 0 0 2rem; font-size: 1.05rem; }
+      h2 { margin-top: 2.5rem; font-size: 1.5rem; }
+      h3 { margin-top: 1.5rem; font-size: 1.1rem; }
+      nav.crumbs { font-size: 0.875rem; color: #64748b; margin-bottom: 1.5rem; }
+      nav.crumbs a { color: #64748b; text-decoration: none; }
+      .calc-box { background: #fff; border: 1px solid #e2e8f0; border-radius: 0.5rem; padding: 1.5rem; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1.25rem; align-items: end; }
+      @media (max-width: 640px) { .calc-box { grid-template-columns: 1fr; } }
+      .field label { display: block; font-weight: 600; font-size: 0.9rem; margin-bottom: 0.4rem; }
+      .field label .hint { font-weight: 400; color: #64748b; margin-left: 0.4rem; font-size: 0.85rem; }
+      .field input { width: 100%; box-sizing: border-box; padding: 0.6rem 0.8rem; border: 1px solid #cbd5e1; border-radius: 0.4rem; font: inherit; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }
+      .field input:focus { outline: 2px solid #1e40af; outline-offset: 1px; }
+      .results { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; grid-column: 1 / -1; }
+      @media (max-width: 640px) { .results { grid-template-columns: 1fr; } }
+      .result { background: #f1f5f9; border: 1px solid #e2e8f0; border-radius: 0.5rem; padding: 1.1rem; }
+      .result .label { font-size: 0.8rem; color: #475569; text-transform: uppercase; letter-spacing: 0.05em; }
+      .result .value { font-size: 1.85rem; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-weight: 700; margin: 0.25rem 0; }
+      .result .status { display: inline-block; padding: 0.15rem 0.55rem; border-radius: 999px; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; }
+      .status.good { background: #16a34a; color: #fff; }
+      .status.bad { background: #dc2626; color: #fff; }
+      .status.neutral { background: #cbd5e1; color: #0f172a; }
+      table { width: 100%; border-collapse: collapse; background: #fff; border: 1px solid #e2e8f0; border-radius: 0.5rem; overflow: hidden; margin: 1rem 0; }
+      th, td { text-align: left; padding: 0.65rem 0.9rem; border-bottom: 1px solid #e2e8f0; font-size: 0.95rem; }
+      th { background: #f1f5f9; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: #475569; }
+      tr:last-child td { border-bottom: none; }
+      td.formula { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }
+      details { background: #fff; border: 1px solid #e2e8f0; border-radius: 0.4rem; padding: 0.75rem 1rem; margin-bottom: 0.5rem; }
+      details summary { cursor: pointer; font-weight: 600; }
+      details[open] summary { margin-bottom: 0.5rem; }
+      .meta-row { font-size: 0.85rem; color: #64748b; margin-bottom: 1.5rem; }
+      .disclaimer { background: #fff7ed; border: 1px solid #fed7aa; color: #7c2d12; padding: 0.85rem 1rem; border-radius: 0.4rem; font-size: 0.85rem; margin-top: 2.5rem; }
+      footer.site { border-top: 1px solid #e2e8f0; padding: 1.5rem; text-align: center; font-size: 0.85rem; color: #64748b; line-height: 1.7; }
+      footer.site a { color: #64748b; margin: 0 0.5rem; text-decoration: none; }
+      footer.site a:hover { color: #0f172a; }
+      footer.site .small { display: block; font-size: 0.75rem; margin-top: 0.6rem; max-width: 700px; margin-left: auto; margin-right: auto; }
+    </style>
+  </head>
+  <body>
+    <header class="site">
+      <a class="brand" href="/">EVM Calculator</a>
+      <nav>
+        <a href="/">Home</a>
+        <a href="/cpi-calculator/">CPI</a>
+        <a href="/pmp-formulas/">PMP Formulas</a>
+        <a href="/what-is-budget-at-completion/">What is BAC?</a>
+        <a href="/about/">About</a>
+      </nav>
+    </header>
+    <main>
+      <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a> &rsaquo; EAC Calculator</nav>
+      <h1>Estimate at Completion (EAC) Calculator</h1>
+      <p class="lede">Forecast the total cost of your project given current performance. The most common formula assumes today's cost efficiency continues: <strong>EAC = BAC / CPI</strong>. The calculator also reports projected variance at completion (VAC).</p>
+      <p class="meta-row">Last reviewed: 3 May 2026 &middot; Source: <a href="https://www.pmi.org/" rel="nofollow noopener">Project Management Institute, The Standard for Earned Value Management</a></p>
+
+      <section aria-label="Calculator">
+        <div class="calc-box">
+          <div class="field">
+            <label for="bac">BAC <span class="hint">Budget at Completion</span></label>
+            <input type="number" id="bac" inputmode="decimal" placeholder="e.g. 100000" />
+          </div>
+          <div class="field">
+            <label for="ev">EV <span class="hint">Earned Value</span></label>
+            <input type="number" id="ev" inputmode="decimal" placeholder="e.g. 35000" />
+          </div>
+          <div class="field">
+            <label for="ac">AC <span class="hint">Actual Cost</span></label>
+            <input type="number" id="ac" inputmode="decimal" placeholder="e.g. 38000" />
+          </div>
+          <div class="results">
+            <div class="result">
+              <div class="label">EAC = BAC / CPI</div>
+              <div class="value" id="eac-value">N/A</div>
+              <span class="status neutral" id="eac-status">Enter values</span>
+            </div>
+            <div class="result">
+              <div class="label">VAC = BAC − EAC</div>
+              <div class="value" id="vac-value">N/A</div>
+              <span class="status neutral" id="vac-status">Enter values</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <h2>The three EAC formulas</h2>
+      <table>
+        <thead><tr><th>Formula</th><th>When to use</th></tr></thead>
+        <tbody>
+          <tr><td class="formula">EAC = BAC / CPI</td><td>Default. Current cost performance is expected to continue for remaining work.</td></tr>
+          <tr><td class="formula">EAC = AC + (BAC − EV)</td><td>Atypical. Current variance is a one-off; remaining work follows the original plan.</td></tr>
+          <tr><td class="formula">EAC = AC + ((BAC − EV) / (CPI × SPI))</td><td>Pessimistic. Both cost and schedule performance are expected to continue.</td></tr>
+        </tbody>
+      </table>
+
+      <h2>Worked example</h2>
+      <p>A software project has BAC = $100,000. After 3 months it has earned EV = $35,000 against AC = $38,000.</p>
+      <ul>
+        <li>CPI = 35,000 / 38,000 = <strong>0.921</strong></li>
+        <li>EAC = 100,000 / 0.921 = <strong>$108,571</strong></li>
+        <li>VAC = 100,000 − 108,571 = <strong>−$8,571</strong> (forecast deficit)</li>
+        <li>ETC = 108,571 − 38,000 = <strong>$70,571</strong> remaining</li>
+      </ul>
+      <p>The project is forecast to overrun the original budget by about 8.6 percent if current efficiency continues. Use the <a href="/cpi-calculator/">CPI Calculator</a> to drill into cost efficiency, or the <a href="/">full EVM Calculator</a> for all 8 metrics together.</p>
+
+      <h2>Common mistakes when computing EAC</h2>
+      <ul>
+        <li><strong>Picking the wrong formula.</strong> Default to BAC / CPI unless you can defend why current variance is a one-off.</li>
+        <li><strong>Forgetting BAC re-baselines.</strong> If BAC has been formally changed, EAC must be recomputed against the new BAC.</li>
+        <li><strong>Using monthly EV with cumulative AC.</strong> Both must be cumulative-to-date for the standard formulas.</li>
+        <li><strong>Treating EAC as fixed.</strong> EAC is a forecast that should be updated every reporting period.</li>
+      </ul>
+
+      <h2>Frequently asked questions</h2>
+      <details><summary>What is Estimate at Completion?</summary><p>EAC is the forecasted total cost of a project given its current performance. It replaces the original BAC as the working forecast once the project is underway and actual data is available.</p></details>
+      <details><summary>What does a negative VAC mean?</summary><p>VAC = BAC − EAC. A negative VAC means EAC exceeds BAC — the project is forecast to overrun its original budget. Positive VAC is a forecast surplus.</p></details>
+      <details><summary>Is EAC the same as ETC?</summary><p>No. EAC is the forecast total project cost (past + future). ETC is only the cost remaining from now to completion: ETC = EAC − AC.</p></details>
+      <details><summary>Can EAC be lower than BAC?</summary><p>Yes. If CPI is greater than 1.0, the project is delivering more value than its cost, and EAC = BAC / CPI is below the original budget — a forecast surplus.</p></details>
+      <details><summary>How does EAC tie to TCPI?</summary><p>TCPI tells you the cost efficiency required on remaining work to finish at the original BAC (or at the EAC). If TCPI is above 1.0, it is a warning that the team must outperform the original plan to avoid overrun.</p></details>
+
+      <h2>Related references</h2>
+      <ul>
+        <li><a href="/cpi-calculator/">CPI Calculator — measure cost efficiency</a></li>
+        <li><a href="/what-is-budget-at-completion/">What is Budget at Completion?</a></li>
+        <li><a href="/pmp-formulas/">PMP Formulas cheat sheet — all 9 EVM formulas</a></li>
+        <li><a href="/">Full EVM Calculator — compute all 8 metrics together</a></li>
+      </ul>
+
+      <p class="disclaimer"><strong>Disclaimer:</strong> This calculator is provided as an educational reference. It is not professional project management or financial advice. Always verify results against your organization's project controls policies and the latest PMI / PMBOK guidance.</p>
+    </main>
+    <footer class="site">
+      <div>
+        <a href="/">Home</a> &middot;
+        <a href="/cpi-calculator/">CPI</a> &middot;
+        <a href="/eac-calculator/">EAC</a> &middot;
+        <a href="/pmp-formulas/">PMP Formulas</a> &middot;
+        <a href="/what-is-budget-at-completion/">What is BAC?</a> &middot;
+        <a href="/about/">About</a> &middot;
+        <a href="/privacy-policy/">Privacy</a> &middot;
+        <a href="/terms-of-service/">Terms</a> &middot;
+        <a href="mailto:contact@evm-calculator.replit.app">Contact</a>
+      </div>
+      <span class="small">&copy; 2026 EVM Calculator. All calculations run in your browser. Educational reference; verify against PMBOK Guide and your organization's controls policy.</span>
+    </footer>
+    <script>
+      (function () {
+        var bac = document.getElementById("bac");
+        var ev = document.getElementById("ev");
+        var ac = document.getElementById("ac");
+        var eacOut = document.getElementById("eac-value");
+        var eacStatus = document.getElementById("eac-status");
+        var vacOut = document.getElementById("vac-value");
+        var vacStatus = document.getElementById("vac-status");
+        function fmt(n) { return new Intl.NumberFormat("en-US", { style: "currency", currency: "USD", maximumFractionDigits: 0 }).format(n); }
+        function recompute() {
+          var b = parseFloat(bac.value);
+          var e = parseFloat(ev.value);
+          var a = parseFloat(ac.value);
+          if (isNaN(b) || isNaN(e) || isNaN(a) || a === 0 || e === 0) {
+            eacOut.textContent = "N/A"; eacStatus.textContent = "Enter values"; eacStatus.className = "status neutral";
+            vacOut.textContent = "N/A"; vacStatus.textContent = "Enter values"; vacStatus.className = "status neutral";
+            return;
+          }
+          var cpi = e / a;
+          var eac = b / cpi;
+          var vac = b - eac;
+          eacOut.textContent = fmt(eac);
+          eacStatus.textContent = "CPI " + cpi.toFixed(3);
+          eacStatus.className = "status " + (cpi >= 1 ? "good" : "bad");
+          vacOut.textContent = fmt(vac);
+          vacStatus.textContent = vac >= 0 ? "Surplus" : "Deficit";
+          vacStatus.className = "status " + (vac >= 0 ? "good" : "bad");
+        }
+        bac.addEventListener("input", recompute);
+        ev.addEventListener("input", recompute);
+        ac.addEventListener("input", recompute);
+      })();
+    </script>
+  </body>
+</html>
